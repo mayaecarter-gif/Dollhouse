@@ -21,6 +21,7 @@ footer{text-align:center;color:#a48ca4;font-size:10px;padding:14px 12px;line-hei
 @media(min-width:580px){body{padding:20px 0}.app{border-radius:30px;overflow:hidden;min-height:calc(100vh - 40px)}nav{bottom:20px;border-radius:0 0 30px 30px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 
+.guide-flag{display:inline-flex!important;vertical-align:middle;margin:0 0 0 5px;width:30px;height:22px;border-radius:5px}
 .trans-flag-icon{display:flex!important;flex-direction:column;justify-content:center;gap:0;width:25px;height:18px;margin:2px auto 5px;border-radius:4px;overflow:hidden;box-shadow:0 1px 4px #1c0d2533;border:1px solid #ffffff75}
 .trans-flag-icon i{display:block;flex:1;width:100%}
 .trans-flag-icon i:nth-child(1){background:#75d7f2}
@@ -107,7 +108,7 @@ footer{text-align:center;color:#a48ca4;font-size:10px;padding:14px 12px;line-hei
  <div class="sectiongap"></div><div class="head"><h2>Affordable product picks</h2><span class="pill">UK shops</span></div><p class="sub" style="margin:0 2px 12px">Starter picks to explore. Prices can change; check the retailer before buying.</p><div id="productGrid" class="product-grid"></div><div class="sectiongap"></div><div class="card"><h3>My beauty wishlist ✨</h3><p class="sub">Save products, tutorials or looks you want to try.</p><textarea id="beautyNote" rows="3" placeholder="e.g. practise blush placement, find a gentle cleanser..."></textarea><button class="primary full" onclick="saveField('beautyNote','Beauty wishlist saved on this device 💗')">Save my wishlist</button></div>
 </section>
 <section id="learn" class="view">
- <div class="head"><div><div class="eyebrow">KNOWLEDGE WITHOUT PRESSURE</div><h2>Transition guide 🦋</h2></div><span class="pill lav">Learn at your pace</span></div>
+ <div class="head"><div><div class="eyebrow">KNOWLEDGE WITHOUT PRESSURE</div><h2>Transition guide <span class="trans-flag-icon guide-flag" aria-label="pastel transgender flag"><i></i><i></i><i></i><i></i><i></i></span></h2></div><span class="pill lav">Learn at your pace</span></div>
  <div class="notice purple">General education, not personal medical advice. Effects and timelines vary. Discuss treatment decisions with a qualified healthcare professional.</div>
  <div class="tabs" id="learnTabs"><button class="active" onclick="learnTab('basics',this)">HRT basics</button><button onclick="learnTab('timeline',this)">Timeline</button><button onclick="learnTab('care',this)">Appointments</button><button onclick="learnTab('social',this)">Social transition</button></div>
  <div id="learnContent"></div>

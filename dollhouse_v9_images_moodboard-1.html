@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#29102f">
+<title>Dollhouse ✦ Your space, your journey</title>
+<style>
+:root{--ink:#2b1830;--plum:#29102f;--plum2:#4a2151;--pink:#d957a0;--pink2:#f2b6d5;--rose:#fbf0f6;--lilac:#d8c6ff;--lav:#f4effa;--peach:#f7e9e2;--mint:#e5f2ec;--paper:#fffafd;--white:#fff;--muted:#816d85;--line:#eadfea;--shadow:0 8px 24px #3510370a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f6f1f6;color:var(--ink);font:15px/1.5 ui-rounded,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}.app{max-width:540px;margin:auto;min-height:100vh;background:var(--paper);padding-bottom:94px;box-shadow:0 0 60px #35103710}
+.hero{padding:22px 20px 20px;color:white;background:linear-gradient(145deg,#29102f,#432047 75%,#52274f);position:relative;overflow:hidden;border-radius:0 0 30px 30px}
+.hero:after{content:"✦  ·  ✧";position:absolute;right:17px;top:76px;font-size:24px;letter-spacing:8px;color:#ffc1e3;opacity:.8}.topline{display:flex;justify-content:space-between;align-items:center}.brand{font-size:12px;letter-spacing:.18em;font-weight:900;color:#ffb9df}.avatar{width:43px;height:43px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(145deg,#ff9bd0,#b38bff);color:#35123b;font-size:23px;box-shadow:0 6px 22px #e93c9a35}
+h1{font-size:36px;line-height:1.02;letter-spacing:-.05em;margin:18px 0 9px}h1 span{color:#ff9ed1}.hero p{margin:0;color:#f5e4f4;max-width:340px;font-size:14px}.hero .quote{position:relative;z-index:1;margin-top:21px;padding:14px 15px;border:1px solid #ffffff2c;background:#ffffff12;border-radius:17px;max-width:420px;font-weight:700;font-size:14px}
+main{padding:19px 15px}.view{display:none}.view.active{display:block;animation:rise .22s ease}@keyframes rise{from{opacity:.55;transform:translateY(5px)}to{opacity:1;transform:none}}
+.head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:2px 2px 13px}h2{font-size:21px;line-height:1.15;letter-spacing:-.035em;margin:0}h3{font-size:15px;line-height:1.25;margin:0 0 5px}.sub{font-size:12px;color:var(--muted)}.eyebrow{font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:900;color:#b12c79}.pill{display:inline-flex;align-items:center;gap:4px;padding:5px 9px;border-radius:99px;background:#ffe2f1;color:#a91f6d;font-size:10px;font-weight:900;white-space:nowrap}.pill.lav{background:var(--lav);color:#6d4ba8}.pill.mint{background:var(--mint);color:#26745a}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.tile{min-height:148px;text-align:left;border:1px solid var(--line);border-radius:18px;padding:15px;background:white;color:var(--ink);box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .15s}.tile:active{transform:scale(.98)}.tile:after{content:""}.tile .emoji{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;font-size:24px;margin-bottom:12px}.tile strong{display:block;font-size:14px;margin-bottom:3px}.tile small{display:block;color:var(--muted);font-size:11px;line-height:1.35}.pinkbg{background:var(--rose)}.lilacbg{background:var(--lav)}.peachbg{background:var(--peach)}.mintbg{background:var(--mint)}
+.card{background:white;border:1px solid var(--line);border-radius:20px;padding:15px;margin-bottom:12px;box-shadow:var(--shadow)}.card.softpink{background:linear-gradient(140deg,#fff0f8,#fffafd)}.card.dark{background:linear-gradient(145deg,#32163a,#522451);color:white;border:0}.card.dark .sub{color:#eed5e8}.row{display:flex;gap:12px;align-items:flex-start}.grow{flex:1;min-width:0}.iconbox{width:43px;height:43px;border-radius:15px;display:grid;place-items:center;font-size:22px;flex-shrink:0}.sectiongap{height:19px}.primary,.secondary,.ghost,.danger{border:0;border-radius:13px;padding:11px 14px;font-weight:800}.primary{background:linear-gradient(100deg,#e93191,#c52c91);color:white;box-shadow:0 5px 12px #6b2d5c14}.secondary{background:#f6e8f5;color:#632b63}.ghost{background:#ffffff20;color:inherit;border:1px solid #ffffff30}.danger{background:#fff0f2;color:#a32a4c}.small{font-size:11px;padding:8px 10px}.full{width:100%}
+label{display:block;font-size:12px;font-weight:800;color:#654d69;margin:8px 0 4px}input,textarea,select{width:100%;border:1px solid #e9d6e6;background:#fff;border-radius:12px;padding:11px 12px;color:var(--ink);outline-color:var(--pink)}textarea{resize:vertical}input[type=checkbox]{width:19px;height:19px;accent-color:var(--pink);margin:0}.checkrow{display:flex;align-items:center;gap:10px;padding:9px 0}.checkrow label{font-size:13px;font-weight:650;color:var(--ink);margin:0}.checkrow input{flex-shrink:0}.notice{background:#fff3dc;border:1px solid #f0dfb6;padding:12px;border-radius:14px;font-size:12px;color:#694e22;margin-bottom:12px}.notice.purple{background:#f3edff;border-color:#e1d5ff;color:#5e4687}.progress{height:7px;border-radius:9px;background:#f3deeb;overflow:hidden;margin:10px 0}.progress div{height:100%;width:0;background:linear-gradient(90deg,var(--pink),#ad8cff);transition:width .2s}.quote-card{font-size:16px;line-height:1.4;font-weight:750}.quote-card small{display:block;margin-top:8px;font-size:11px;color:var(--muted);font-weight:600}.tabs{display:flex;gap:7px;overflow:auto;padding:1px 0 9px;margin-bottom:8px}.tabs button{border:1px solid var(--line);background:white;color:var(--muted);border-radius:99px;padding:8px 12px;font-size:11px;font-weight:800;white-space:nowrap}.tabs button.active{background:var(--plum);color:white;border-color:var(--plum)}.lesson{border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:9px;background:#fff}.lesson summary{cursor:pointer;font-weight:800;list-style:none}.lesson summary:after{content:"＋";float:right;color:var(--pink)}.lesson[open] summary:after{content:"−"}.lesson p{font-size:13px;color:var(--muted);margin-bottom:0}.empty{text-align:center;padding:18px;color:var(--muted);font-size:13px}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(540px,100%);display:grid;grid-template-columns:repeat(5,1fr);background:#fffdfd;border-top:1px solid var(--line);padding:8px 5px calc(8px + env(safe-area-inset-bottom));z-index:10;box-shadow:0 -6px 24px #35103709}nav button{border:0;background:transparent;color:#8b768f;font-size:10px;font-weight:800;padding:5px 0;border-radius:13px}nav button span{display:block;font-size:21px;line-height:1.3;margin-bottom:2px}nav button.active{background:#ffe5f2;color:#b21f70}
+footer{text-align:center;color:#a48ca4;font-size:10px;padding:14px 12px;line-height:1.8}.mini{font-size:11px;color:var(--muted)}.barline{display:flex;justify-content:space-between;gap:8px;align-items:center}.beauty-steps{display:grid;grid-template-columns:1fr 1fr;gap:8px}.beauty-step{background:#fff;border:1px solid var(--line);border-radius:15px;padding:11px}.beauty-step b{display:block;font-size:12px}.beauty-step span{font-size:11px;color:var(--muted)}
+@media(min-width:580px){body{padding:20px 0}.app{border-radius:30px;overflow:hidden;min-height:calc(100vh - 40px)}nav{bottom:20px;border-radius:0 0 30px 30px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+
+.trans-flag-icon{display:flex!important;flex-direction:column;justify-content:center;gap:0;width:25px;height:18px;margin:2px auto 5px;border-radius:4px;overflow:hidden;box-shadow:0 1px 4px #1c0d2533;border:1px solid #ffffff75}
+.trans-flag-icon i{display:block;flex:1;width:100%}
+.trans-flag-icon i:nth-child(1){background:#75d7f2}
+.trans-flag-icon i:nth-child(2){background:#f7b7d2}
+.trans-flag-icon i:nth-child(3){background:#fff}
+.trans-flag-icon i:nth-child(4){background:#f7b7d2}
+.trans-flag-icon i:nth-child(5){background:#75d7f2}
+.tile .trans-flag-icon{margin:0 0 12px;width:43px;height:30px;border-radius:8px;border:1px solid #f0d5e7}
+
+
+.product-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.product-card{border:1px solid var(--line);background:#fff;border-radius:17px;overflow:hidden;box-shadow:var(--shadow);min-width:0}
+.product-art{height:118px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#f7edf7,#fbe3f0);padding:10px}
+.product-art img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+.product-info{padding:11px}.product-info h3{font-size:13px;line-height:1.3}.product-price{font-weight:900;color:#a52270;font-size:14px}.product-info p{font-size:11px;color:var(--muted);margin:5px 0 10px}.product-actions{display:flex;gap:6px}.product-actions a,.product-actions button{flex:1;text-align:center;text-decoration:none;font-size:10px;padding:8px 5px;border-radius:10px;font-weight:800;border:0}.product-actions a{background:var(--plum);color:white}.product-actions button{background:#f5e8f4;color:#653362}
+.mood-grid{columns:2;column-gap:10px}.mood-pin{display:inline-block;width:100%;break-inside:avoid;margin:0 0 10px;border:1px solid var(--line);background:white;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}.mood-pin img{width:100%;display:block;max-height:360px;object-fit:cover;background:#f3e7f2}.mood-pin .pin-info{padding:10px}.mood-pin .pin-info p{font-size:12px;margin:0 0 8px;overflow-wrap:anywhere}.mood-pin .pin-actions{display:flex;gap:6px}.mood-pin .pin-actions button,.mood-pin .pin-actions a{font-size:10px;border:0;border-radius:9px;padding:7px 8px;font-weight:800;text-decoration:none}.mood-pin .pin-actions a{background:#f4e9f5;color:#633562}.mood-pin .pin-actions button{background:#fff0f2;color:#a32a4c}
+
+
+.beauty-nav{scrollbar-width:none}.beauty-nav::-webkit-scrollbar{display:none}
+.product-carousel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px;box-shadow:var(--shadow)}
+.carousel-head,.carousel-controls{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.product-slide{margin-top:10px;touch-action:pan-y;overflow:hidden;border:1px solid var(--line);border-radius:17px;background:#fffafd}
+.product-slide .product-art{height:142px;background:linear-gradient(145deg,#f3edf9,#fbeaf3);display:grid;place-items:center}
+.product-symbol{width:82px;height:82px;border-radius:26px;display:grid;place-items:center;font-size:42px;background:#ffffffc9;box-shadow:0 8px 22px #3510370d}
+.product-slide .product-info{padding:15px}.product-slide .product-info h3{font-size:17px}.product-slide .product-info p{font-size:12px;line-height:1.5}
+.carousel-controls{margin-top:12px}.carousel-controls button:disabled{opacity:.35;cursor:not-allowed}
+.dots{display:flex;gap:5px;justify-content:center;flex-wrap:wrap}.dots button{border:0;padding:0;width:6px;height:6px;border-radius:50%;background:#d9c8d9}.dots button.active{background:#8a4d85;width:16px;border-radius:8px}
+.wig-note{margin-top:10px;background:#f6effa;border:1px solid #e9dff2;padding:13px;border-radius:15px;font-size:13px}.wig-note p{margin:5px 0 0;color:#705d75;font-size:12px;line-height:1.5}
+
+
+/* v9: visible category imagery and swipeable moodboard viewer */
+.product-slide .product-art{position:relative;height:190px;padding:10px;overflow:hidden}
+.product-slide .product-art .product-photo{display:block;width:100%;height:100%;object-fit:contain;border-radius:10px;background:#fff}
+.product-slide .product-art .product-symbol{position:absolute;inset:0;margin:auto}
+.image-note{position:absolute;bottom:7px;right:8px;font-size:9px;background:#ffffffdf;color:#68416c;border-radius:8px;padding:4px 6px}
+.mood-image-open{display:block;width:100%;padding:0;border:0;background:#f4eafa;cursor:zoom-in;text-align:inherit}
+.mood-image-open img{width:100%;display:block;max-height:360px;object-fit:cover}
+.mood-viewer{display:none;position:fixed;inset:0;z-index:9999;background:rgba(24,10,28,.94);align-items:center;justify-content:center;padding:56px 14px 68px}
+.viewer-content{width:min(100%,760px);max-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;touch-action:pan-y}
+.viewer-content img{display:block;max-width:100%;max-height:76vh;object-fit:contain;border-radius:12px;box-shadow:0 10px 50px #0005}
+.viewer-title{color:white;text-align:center;font-weight:800;margin:12px 0 0;overflow-wrap:anywhere}
+.viewer-close,.viewer-arrow{position:absolute;border:0;color:white;background:#ffffff20;border-radius:50%;display:grid;place-items:center;cursor:pointer}
+.viewer-close{top:14px;right:16px;width:42px;height:42px;font-size:30px}
+.viewer-arrow{top:50%;transform:translateY(-50%);width:42px;height:52px;font-size:38px}
+.viewer-prev{left:8px}.viewer-next{right:8px}
+.viewer-counter{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:#fff;font-size:13px}
+.viewer-link{background:#fff8ff;color:#48244f;padding:26px;border-radius:18px;text-align:center;max-width:440px;width:100%}
+.viewer-link>div{font-size:42px}.viewer-link a{display:inline-block;color:#fff;background:#48244f;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:800}
+@media(min-width:600px){.viewer-prev{left:calc(50% - 390px)}.viewer-next{right:calc(50% - 390px)}}
+
+</style>
+</head>
+<body><div class="app">
+<header class="hero"><div class="topline"><div class="brand">DOLLHOUSE ✦ YOUR SPACE</div><div class="avatar">♡</div></div><h1>Dollhouse<span>.</span></h1><p>A little more confidence, a little more you. Your transition, your pace, your rules.</p><div class="quote" id="heroQuote">“You deserve to feel at home in yourself. 💗”</div></header>
+<main>
+<section id="home" class="view active">
+ <div class="head"><div><div class="eyebrow">YOUR LITTLE CORNER</div><h2>Hey, gorgeous ✨</h2></div><span class="pill" id="today"></span></div>
+ <div class="grid">
+  <button class="tile" onclick="show('routine')"><span class="emoji pinkbg">💊</span><strong>My routine</strong><small>Prescribed schedule & daily check-ins</small></button>
+  <button class="tile" onclick="show('beauty')"><span class="emoji lilacbg">💄</span><strong>Beauty studio</strong><small>Makeup, skincare, hair & style</small></button>
+  <button class="tile" onclick="show('learn')"><span class="emoji peachbg"><span class="trans-flag-icon" aria-label="pastel transgender flag"><i></i><i></i><i></i><i></i><i></i></span></span><strong>Transition guide</strong><small>Learn at your own pace</small></button>
+  <button class="tile" onclick="show('journey')"><span class="emoji mintbg">💖</span><strong>My journey</strong><small>Milestones, goals & journal</small></button>
+ </div>
+ <div class="sectiongap"></div>
+ <div class="card dark"><div class="eyebrow" style="color:#ffb9df">A NOTE FOR YOU</div><div class="quote-card" id="affirmation">You don't have to have everything figured out to be becoming yourself.</div><div class="barline" style="margin-top:14px"><span class="sub">A little encouragement</span><button class="ghost small" onclick="newAffirmation()">Another one ✨</button></div></div>
+ <div class="card softpink"><div class="head"><h2>Today's little win</h2><span class="pill" id="winCount">0/1</span></div><p class="sub">Small steps count. Rest counts too.</p><div class="checkrow"><input id="winCheck" type="checkbox"><label for="winCheck">I did one kind thing for myself today.</label></div></div>
+ <div class="card"><div class="row"><div class="iconbox lilacbg">🌷</div><div class="grow"><h3>One day at a time</h3><p class="sub">There isn't one correct way to be a woman or one universal transition timeline. You get to define what feels right for you.</p></div></div></div>
+</section>
+<section id="routine" class="view">
+ <div class="head"><div><div class="eyebrow">GENTLE STRUCTURE</div><h2>My routine 💊</h2></div><span class="pill">Personal</span></div>
+ <div class="notice">Use the schedule prescribed by your clinician or pharmacist. Dollhouse doesn't recommend doses or tell you to change medication. This version shows reminders in-app; it cannot reliably notify you while closed.</div>
+ <div class="card"><h3>Add a reminder</h3><p class="sub">Medication, vitamins, skincare or another daily habit.</p><label for="medName">Reminder name</label><input id="medName" placeholder="e.g. Morning medication"><label for="medTime">Time</label><input id="medTime" type="time" value="09:00"><label for="medNotes">Optional note</label><input id="medNotes" placeholder="e.g. Follow my prescription label"><button class="primary full" onclick="addMed()">＋ Add to my routine</button></div>
+ <div class="head"><h2>My reminders</h2><button class="secondary small" onclick="resetToday()">Reset checklist</button></div><div id="medList"></div>
+ <div class="card"><h3>Refill note 🗓️</h3><label for="refillDate">Optional refill date</label><input id="refillDate" type="date"><label for="refillNote">Pharmacy / reminder note</label><input id="refillNote" placeholder="e.g. Request repeat prescription"><button class="secondary full" onclick="saveRefill()">Save refill note</button><p class="mini" id="refillSaved"></p></div>
+</section>
+<section id="beauty" class="view">
+ <div class="head"><div><div class="eyebrow">EXPERIMENT, PLAY, GLOW</div><h2>Beauty studio 💋</h2></div><span class="pill lav">No rules</span></div>
+ <div class="tabs beauty-nav" id="beautyTabs"><button class="active" onclick="beautyTab('skin',this)">Skincare</button><button onclick="beautyTab('makeup',this)">Makeup</button><button onclick="beautyTab('hair',this)">Hair</button><button onclick="beautyTab('brows',this)">Brows</button><button onclick="beautyTab('style',this)">Style</button><button onclick="beautyTab('wigs',this)">Wigs</button></div>
+ <div id="beautyContent"></div>
+ <div class="sectiongap"></div><div class="head"><h2>Affordable product picks</h2><span class="pill">UK shops</span></div><p class="sub" style="margin:0 2px 12px">Starter picks to explore. Prices can change; check the retailer before buying.</p><div id="productGrid" class="product-grid"></div><div class="sectiongap"></div><div class="card"><h3>My beauty wishlist ✨</h3><p class="sub">Save products, tutorials or looks you want to try.</p><textarea id="beautyNote" rows="3" placeholder="e.g. practise blush placement, find a gentle cleanser..."></textarea><button class="primary full" onclick="saveField('beautyNote','Beauty wishlist saved on this device 💗')">Save my wishlist</button></div>
+</section>
+<section id="learn" class="view">
+ <div class="head"><div><div class="eyebrow">KNOWLEDGE WITHOUT PRESSURE</div><h2>Transition guide 🦋</h2></div><span class="pill lav">Learn at your pace</span></div>
+ <div class="notice purple">General education, not personal medical advice. Effects and timelines vary. Discuss treatment decisions with a qualified healthcare professional.</div>
+ <div class="tabs" id="learnTabs"><button class="active" onclick="learnTab('basics',this)">HRT basics</button><button onclick="learnTab('timeline',this)">Timeline</button><button onclick="learnTab('care',this)">Appointments</button><button onclick="learnTab('social',this)">Social transition</button></div>
+ <div id="learnContent"></div>
+ <div class="card"><h3>Trusted starting point 🇬🇧</h3><p class="sub">Use current, reputable medical guidance and check dates. For personal decisions, speak to your care team.</p><a href="https://www.nhs.uk/conditions/gender-dysphoria/" target="_blank" rel="noopener" style="color:#bb267b;font-weight:800">NHS: Gender dysphoria ↗</a></div>
+</section>
+<section id="journey" class="view">
+ <div class="head"><div><div class="eyebrow">YOUR STORY, YOUR WAY</div><h2>My journey 💖</h2></div><span class="pill mint">Private by default</span></div>
+ <div class="card softpink"><div class="row"><div class="iconbox lilacbg">📌</div><div class="grow"><h3>Your inspiration board</h3><p class="sub">Save outfit ideas, makeup looks, hairstyles and links Pinterest-style.</p></div></div><button class="primary full" style="margin-top:10px" onclick="show('moodboard')">Open my moodboard ↗</button></div>
+ <div class="card"><h3>Milestones & goals 🌸</h3><p class="sub">Choose goals that feel meaningful to you. They don't need to be about appearance or medical transition.</p><label for="goalText">Add a personal goal</label><input id="goalText" placeholder="e.g. try a new lipstick shade"><button class="primary full" onclick="addGoal()">＋ Add a goal</button><div id="goalList" style="margin-top:8px"></div></div>
+ <div class="card"><h3>My journal ✍️</h3><label for="journalDate">Date</label><input id="journalDate" type="date"><label for="journalText">A note to myself</label><textarea id="journalText" rows="4" placeholder="Today, I want to remember..."></textarea><button class="primary full" onclick="saveJournal()">Save journal entry</button></div>
+ <div class="head"><h2>Saved entries</h2></div><div id="journalList"></div>
+ <div class="notice">Privacy matters: this prototype stores entries in this browser on this device. It isn't encrypted or synced, and someone with access to this browser may be able to see them. Avoid storing sensitive details on shared devices.</div>
+</section>
+<section id="moodboard" class="view">
+ <div class="head"><div><div class="eyebrow">SAVE YOUR INSPIRATION</div><h2>My moodboard 📌</h2></div><span class="pill lav">Pinterest-style</span></div>
+ <div class="card softpink"><h3>Your own little inspiration wall</h3><p class="sub">Add photos from your gallery or paste a link. Link previews show an image when the website allows it. Everything is stored locally in this browser.</p></div>
+ <div class="card"><h3>＋ Add a photo from your device</h3><label for="moodImage">Choose photo</label><input id="moodImage" type="file" accept="image/*"><label for="moodImageTitle">Caption (optional)</label><input id="moodImageTitle" placeholder="e.g. Makeup look to try"><button class="primary full" onclick="addMoodImage()">Add to moodboard</button></div>
+ <div class="card"><h3>↗ Save a link</h3><label for="moodUrl">Website or image link</label><input id="moodUrl" type="url" placeholder="https://..."><label for="moodLinkTitle">Caption (optional)</label><input id="moodLinkTitle" placeholder="e.g. Outfit inspiration"><button class="secondary full" onclick="addMoodLink()">Preview & save link</button><p class="mini">Some websites block image previews. If that happens, the saved card will still include a link you can open.</p></div>
+ <div class="head"><h2>Your pins</h2><button class="secondary small" onclick="clearMoodboard()">Clear board</button></div><div id="moodGrid" class="mood-grid"></div>
+ <div class="notice">Privacy note: photos and notes stay in this browser on this device. This prototype is not encrypted or synced.</div>
+</section>
+</main>
+<footer>DOLLHOUSE ✦ MADE WITH LOVE, FOR TRANS WOMEN<br>Prototype v2 · General education, not a substitute for professional medical care</footer>
+<nav aria-label="Main navigation"><button class="active" data-view="home" onclick="show('home')"><span>⌂</span>Home</button><button data-view="routine" onclick="show('routine')"><span>♡</span>Routine</button><button data-view="beauty" onclick="show('beauty')"><span>✧</span>Beauty</button><button data-view="learn" onclick="show('learn')"><span class="trans-flag-icon" aria-label="pastel transgender flag"><i></i><i></i><i></i><i></i><i></i></span>Learn</button><button data-view="journey" onclick="show('journey')"><span>✎</span>Journey</button></nav>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const get=(k,d)=>{try{return JSON.parse(localStorage.getItem('dollhouse2_'+k))??d}catch{return d}};
+const put=(k,v)=>localStorage.setItem('dollhouse2_'+k,JSON.stringify(v));
+const todayKey=()=>new Date().toISOString().slice(0,10);
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function show(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));if(id==='routine')renderMeds();if(id==='journey'){renderJournals();renderGoals()}if(id==='beauty'){renderBeauty('skin');}if(id==='learn')renderLearn('basics');window.scrollTo({top:0,behavior:'smooth'})}
+const affirmations=["You don't have to have everything figured out to be becoming yourself.","You are allowed to take up space exactly as you are.","Your timeline belongs to you. There is no race.","You deserve care that respects you and your goals.","Little steps are still steps. Rest is allowed, too.","You don't have to earn kindness by being perfect.","You can change your mind, take your time, and grow at your own pace."];
+function newAffirmation(){let n=Math.floor(Math.random()*affirmations.length);$('affirmation').textContent=affirmations[n]}
+$('today').textContent=new Date().toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'});
+$('journalDate').value=todayKey();
+$('winCheck').checked=get('win_'+todayKey(),false);$('winCount').textContent=$('winCheck').checked?'1/1':'0/1';
+$('winCheck').addEventListener('change',e=>{put('win_'+todayKey(),e.target.checked);$('winCount').textContent=e.target.checked?'1/1':'0/1'});
+function addMed(){let name=$('medName').value.trim(),time=$('medTime').value,notes=$('medNotes').value.trim();if(!name||!time){alert('Add a name and time first.');return}let meds=get('meds',[]);meds.push({id:Date.now(),name,time,notes});put('meds',meds);$('medName').value='';$('medNotes').value='';renderMeds()}
+function renderMeds(){let meds=get('meds',[]),checks=get('checks_'+todayKey(),{}),el=$('medList');if(!meds.length){el.innerHTML='<div class="card empty">No reminders yet. Add your first routine above 💗</div>';return}el.innerHTML=meds.sort((a,b)=>a.time.localeCompare(b.time)).map(m=>`<div class="card"><div class="row"><div class="iconbox pinkbg">♡</div><div class="grow"><h3>${esc(m.name)}</h3><div class="sub">${esc(m.time)}${m.notes?' · '+esc(m.notes):''}</div></div><button class="danger small" onclick="deleteMed(${m.id})">Remove</button></div><div class="checkrow"><input type="checkbox" id="check${m.id}" ${checks[m.id]?'checked':''} onchange="toggleMed(${m.id},this.checked)"><label for="check${m.id}">Marked complete today</label></div></div>`).join('')}
+function toggleMed(id,v){let c=get('checks_'+todayKey(),{});c[id]=v;put('checks_'+todayKey(),c)}
+function deleteMed(id){put('meds',get('meds',[]).filter(m=>m.id!==id));renderMeds()}
+function resetToday(){put('checks_'+todayKey(),{});renderMeds()}
+function saveRefill(){put('refill',{date:$('refillDate').value,note:$('refillNote').value});$('refillSaved').textContent='Refill note saved on this device.'}
+const beauty={
+skin:{title:'A gentle skincare routine',intro:'You do not need a shelf full of products. Start simple and adjust to your skin.',steps:[['AM','Gentle cleanse or rinse','Keep it comfortable, not tight or stripped.'],['AM','Moisturiser + SPF','Broad-spectrum SPF 30+ is a useful daytime baseline.'],['PM','Cleanse + moisturise','Remove makeup and sunscreen gently.'],['Anytime','Patch test new products','Introduce one new product at a time if possible.']]},
+makeup:{title:'Makeup confidence, one step at a time',intro:'Practise one technique at a time. Makeup is play, not a requirement.',steps:[['START','Skin prep','Moisturiser and a comfortable base can help makeup sit smoothly.'],['BROWS','Shape, don’t overpluck','Try brushing brows up and filling sparse areas lightly.'],['BASE','Blend in daylight','Test foundation near your jaw and blend gently.'],['FINISH','Choose one feature','Try blush, mascara or lip colour before building a full look.']]},
+hair:{title:'Hair, brows & grooming',intro:'Choose routines that suit your skin, hair texture, budget and comfort.',steps:[['HAIR','Find your texture','A simple cut and a routine for your hair type can go a long way.'],['BROWS','Small changes first','Use light strokes and avoid making big changes in a rush.'],['SHAVING','Reduce irritation','Use a clean sharp razor, lubrication and gentle aftercare if shaving.'],['OPTIONS','Explore at your pace','Hair removal options differ in cost, permanence and suitability.']]},
+style:{title:'Personal style without the rules',intro:'You get to decide what femininity means to you. There is no required look.',steps:[['INSPO','Save reference looks','Collect colours, shapes and outfits you genuinely like.'],['FIT','Find comfortable silhouettes','Try layering, waist placement or accessories at your own pace.'],['COLOUR','Build a small palette','Pick two neutrals and a couple of colours you love.'],['PLAY','Experiment safely','Try one new accessory or outfit detail without pressure.']]}}
+function beautyTab(id,btn){document.querySelectorAll('#beautyTabs button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');else{let b=[...document.querySelectorAll('#beautyTabs button')].find(x=>x.textContent.toLowerCase().startsWith(id));if(b)b.classList.add('active')}renderBeauty(id)}
+const beautyDetails={
+ skin:[
+  {label:'AM · Cleanse',title:'Gentle morning cleanse',products:'A mild, fragrance-free cleanser — or just lukewarm water if your skin feels dry in the morning.',how:'Wet your face with lukewarm water. Use fingertips to massage cleanser gently for around 20–30 seconds, then rinse and pat dry. Avoid scrubbing.',budget:'Look for labels such as “gentle”, “hydrating” or “for sensitive skin”. You do not need an expensive cleanser.',avoid:'Very hot water, harsh scrubs and products that leave your skin tight or stinging.'},
+  {label:'AM · Protect',title:'Moisturiser + sunscreen',products:'A moisturiser suited to your skin, followed by broad-spectrum SPF 30 or higher. If you already use a daytime moisturiser with SPF, a separate sunscreen may still be useful for adequate coverage.',how:'Apply moisturiser to slightly damp skin. In the morning, apply sunscreen generously to face, ears and neck as the final skincare step. Reapply as directed on the product, especially outdoors, after sweating or swimming.',budget:'A basic moisturiser and an affordable broad-spectrum sunscreen are enough to start. Choose a texture you enjoy using consistently.',avoid:'Relying on a tiny amount of sunscreen or assuming makeup SPF alone always gives the labelled protection.'},
+  {label:'PM · Cleanse',title:'Evening cleanse',products:'A gentle cleanser. If you wear long-wear makeup or water-resistant sunscreen, you may prefer a suitable first cleanse followed by your gentle cleanser.',how:'Wash your hands, cleanse gently and rinse well. Remove eye makeup carefully with a product made for that area. Pat dry rather than rubbing.',budget:'One gentle cleanser is fine if it removes your sunscreen and makeup comfortably.',avoid:'Sleeping in makeup when you can avoid it, aggressive rubbing or using products that irritate your eyes.'},
+  {label:'PM · Moisturise',title:'Night-time moisturiser',products:'A plain moisturiser with ingredients such as glycerin or ceramides can help support the skin barrier. Choose a lighter gel-cream for a feel you prefer, or a richer cream if your skin feels dry.',how:'Apply after cleansing while skin is slightly damp. Start with a small amount and add more to dry areas if needed.',budget:'You can use the same moisturiser morning and night if it suits your skin.',avoid:'Adding lots of strong actives at once. If a product burns or causes persistent irritation, stop using it and seek professional advice if needed.'},
+  {label:'OPTIONAL · New products',title:'Introduce one product at a time',products:'Optional ingredients such as salicylic acid may help some acne-prone skin, while fragrance-free moisturisers may suit sensitive skin. Retinoids can irritate and may not be suitable for everyone.',how:'Patch test according to the product instructions and introduce one new product at a time, giving your skin a chance to respond before adding another.',budget:'A basic routine is often enough. Serums and toners are optional, not compulsory.',avoid:'Using multiple exfoliants together or starting strong actives on irritated skin. Ask a pharmacist or clinician if you are unsure or using prescription skin treatments.'}
+ ],
+ makeup:[
+  {label:'START · Prep',title:'Prep skin before makeup',products:'Your usual gentle moisturiser and daytime sunscreen. Primer is optional.',how:'Let skincare settle before applying makeup. If products pill, try using smaller amounts and waiting between layers.',budget:'You do not need a primer if your moisturiser and base work well together.',avoid:'Applying makeup over skin that is actively stinging or irritated.'},
+  {label:'BASE · Match',title:'Find a comfortable base',products:'Tinted moisturiser, skin tint or foundation — whichever coverage feels right for you.',how:'Test a small amount along the jawline in natural light. Blend gently and give it a moment to settle before judging the shade.',budget:'A light base or concealer used only where you want it can be enough.',avoid:'Buying a shade based only on the colour in a shop’s artificial lighting.'},
+  {label:'BROWS · Shape',title:'Soft brow definition',products:'A brow pencil, powder or clear/coloured brow gel.',how:'Brush hairs into place. Use light, short strokes to fill sparse areas, then soften with a spoolie. Step back and check both sides.',budget:'One pencil with a spoolie can do the job.',avoid:'Feeling you must reshape your natural brows dramatically.'},
+  {label:'FINISH · Blush & lips',title:'Add a little colour',products:'Powder or cream blush and a lip balm, tint or lipstick.',how:'Start with a small amount of blush and build slowly. Tap cream products in with fingers or a sponge; apply lip colour from the centre outward.',budget:'Choose one product you can use in more than one way if it suits its intended use.',avoid:'Sharing eye or lip products, especially during infections.'}
+ ],
+ hair:[
+  {label:'CARE · Wash',title:'Build a gentle hair routine',products:'A shampoo suited to your scalp and a conditioner suited to your hair lengths.',how:'Massage shampoo into the scalp with fingertips, rinse well, and work conditioner through the lengths as directed. Adjust wash frequency to your scalp and hair.',budget:'Start with one shampoo and one conditioner; extra treatments are optional.',avoid:'Scratching the scalp with nails or using water that is uncomfortably hot.'},
+  {label:'BROWS · Groom',title:'Groom brows gently',products:'A clean spoolie and, if you like, brow gel or pencil.',how:'Brush brows into their natural direction and trim only obvious long hairs if you feel confident. Make small changes and reassess.',budget:'A spoolie is an inexpensive first step.',avoid:'Over-plucking in a hurry; brow hair can take time to grow back.'},
+  {label:'SHAVE · Reduce irritation',title:'A gentler shave',products:'A clean sharp razor, shaving gel or cream, and a bland moisturiser afterwards.',how:'Soften hair with warm water, use lubrication, shave gently in the direction of growth if prone to bumps, rinse the blade often and moisturise after.',budget:'A suitable basic shaving gel and moisturiser can be enough.',avoid:'Dry shaving if it irritates your skin, pressing hard or sharing razors. Seek advice for persistent painful bumps.'},
+  {label:'STYLE · Explore',title:'Find a style that feels like you',products:'A comb or brush and optional styling product suited to your hair type.',how:'Save reference pictures, try a low-pressure style at home and ask a stylist about maintenance before committing to a major change.',budget:'You can experiment with parting, clips or simple styling before buying lots of products.',avoid:'Assuming one haircut or style is required to look feminine.'}
+ ],
+ style:[
+  {label:'START · Inspiration',title:'Build a style moodboard',products:'Saved photos, a notes app or a small folder of outfit ideas.',how:'Collect outfits you like and look for repeating colours, shapes and details. Focus on what feels exciting and comfortable to you.',budget:'Use clothes you already own to test combinations first.',avoid:'Treating edited photos or trend rules as standards you must meet.'},
+  {label:'FIT · Silhouettes',title:'Try shapes and proportions',products:'Clothes that fit comfortably and let you move easily; layering pieces are optional.',how:'Try different rises, lengths and layers in front of a mirror if you enjoy it. Take a photo only if useful to you, and keep what feels good.',budget:'Second-hand shops and swapping with friends can be low-cost ways to experiment.',avoid:'Buying a whole new wardrobe before you know what you enjoy wearing.'},
+  {label:'COLOUR · Palette',title:'Find colours you love',products:'A few pieces in colours that make you feel good; no special tools required.',how:'Pair one colour with a neutral and notice what you like in daylight. Personal preference matters more than rigid colour rules.',budget:'Accessories can add colour without replacing your wardrobe.',avoid:'Assuming any colour is off-limits because of skin tone or a trend.'},
+  {label:'DETAILS · Accessories',title:'Finish with your own details',products:'Optional jewellery, scarves, bags, belts or hair accessories.',how:'Try one detail at a time and see whether it feels comfortable and practical for your day.',budget:'Small accessories can refresh outfits without a big spend.',avoid:'Feeling pressured to buy things you do not want or cannot comfortably afford.'}
+ ]
+};
+function renderBeauty(id){
+ currentBeautyCategory=id;
+ let meta=beautyPageMeta[id]||beautyPageMeta.skin;
+ const details=beautyDetails[id]||[];
+ let guideHtml='';
+ if(details.length){
+  guideHtml=`<div class="sectiongap"></div><div class="head"><h2>Quick guides</h2><span class="pill lav">${details.length} guides</span></div>`+
+  details.map((s,i)=>`<details class="lesson beauty-lesson" ${i===0?'open':''}><summary><span class="pill">${s.label}</span><div style="margin-top:8px">${s.title}</div><p style="font-size:12px;color:var(--muted);font-weight:500;margin:5px 24px 0 0">${s.products}</p></summary><div class="sectiongap"></div><h3>How to use it</h3><p>${s.how}</p><h3 style="margin-top:12px">Budget tip</h3><p>${s.budget}</p><h3 style="margin-top:12px">Things to avoid</h3><p>${s.avoid}</p></details>`).join('');
+ }
+ let extra='';
+ if(id==='wigs') extra=`<div class="card"><h3>Finding your wig style 🎀</h3><p class="sub">Try saving inspiration by length, texture, fringe, colour and hairline. Check cap measurements, return rules, fibre type and care instructions before buying.</p><a href="https://www.simplywigs.co.uk/" target="_blank" rel="noopener" style="color:#bb267b;font-weight:800">Explore wigs at Simply Wigs ↗</a><br><a href="https://www.pinterest.co.uk/search/pins/?q=wig%20hairstyles" target="_blank" rel="noopener" style="color:#bb267b;font-weight:800">Browse wig hairstyle inspiration ↗</a></div>`;
+ let saved=get('savedProducts',[]);
+ let wishlist=saved.length?`<div class="card"><h3>Saved product wishlist ♡</h3>${saved.map(x=>`<div class="checkrow"><span class="grow">${esc(x.name)}</span><a href="${x.url}" target="_blank" rel="noopener" style="color:#bb267b;font-size:12px;font-weight:800">View ↗</a></div>`).join('')}</div>`:'';
+ $('beautyContent').innerHTML=`<div class="card softpink"><div class="eyebrow">BEAUTY STUDIO</div><h2 style="margin:5px 0 8px">${meta.icon} ${meta.title}</h2><p class="sub">${meta.intro}</p></div>
+ ${guideHtml}${extra}
+ <div class="sectiongap"></div><div class="head"><h2>Shop & explore</h2><span class="pill">${(productCatalog[id]||[]).length} picks</span></div><p class="sub" style="margin:0 2px 12px">Guides first, shopping second — choose what feels right for you and check product instructions before use.</p><div id="productGrid"></div>${wishlist}
+ <div class="sectiongap"></div><div class="card"><h3>My ${meta.title.toLowerCase()} wishlist ✨</h3><p class="sub">Save ideas, products or looks you want to try.</p><textarea id="beautyNote" rows="3" placeholder="Add ideas here..."></textarea><button class="primary full" onclick="saveField('beautyNote','Wishlist note saved on this device 💗')">Save my note</button></div>`;
+ const notes=get('beautyNotes',{});$('beautyNote').value=notes[id]||'';
+ renderProducts(id);
+}
+const lessons={
+basics:[['What is HRT?','Gender-affirming hormone therapy may be part of someone’s transition, but not everyone wants or needs it. A qualified clinician can discuss goals, options, risks and monitoring.'],['Changes vary','Effects and timing vary from person to person. Treatment does not guarantee a particular appearance or outcome.'],['Keep your care personal','Do not change doses based on an app or someone else’s experience. Use your prescription and ask your clinician or pharmacist when unsure.']],
+timeline:[['First months','Some effects may begin in the first few months, but timing and extent vary. Changes can continue over several years.'],['Longer-term changes','Some effects develop gradually and some may be limited or not occur. Timelines online are estimates, not promises.'],['Your wellbeing matters','You can keep notes about questions and experiences, but you do not need to track or compare every change.']],
+care:[['Before an appointment','Write down your goals, current medicines, questions and what matters most to you.'],['Questions you can ask','What effects are likely? What monitoring do I need? What side effects should I know about? What should I do if I miss a dose?'],['Get individual advice','A clinician or pharmacist can give advice for your specific prescription and health context.']],
+social:[['Names and pronouns','Try changes in settings where you feel safe and supported. You decide who to tell and when.'],['Presentation','Clothes, voice, hair, makeup and body language are optional tools, not tests you must pass.'],['Boundaries and safety','You do not owe strangers personal details. Prioritise your safety, comfort and support network.']]}
+function learnTab(id,btn){document.querySelectorAll('#learnTabs button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');else{let b=[...document.querySelectorAll('#learnTabs button')].find(x=>x.textContent.toLowerCase().startsWith(id));if(b)b.classList.add('active')}renderLearn(id)}
+function renderLearn(id){
+ if(id==='timeline'){
+   const stages=[
+    {id:'stage1',title:'First months',period:'Approx. 1–3 months',desc:'Some early effects may begin during this period, but timing and extent vary. Your clinician can explain what is expected for your treatment.',items:['Read about expected effects','Write down questions for my clinician']},
+    {id:'stage2',title:'Changes over time',period:'Approx. 3–6 months',desc:'Some changes may become more noticeable over time. Not everyone experiences the same effects or at the same pace.',items:['Review my questions at an appointment','Make a note of anything I want to discuss']},
+    {id:'stage3',title:'Longer-term changes',period:'Approx. 6–12 months and beyond',desc:'Many changes can continue gradually over several years. Timelines are estimates, not promises or targets.',items:['Check in with myself about my goals','Keep up with recommended clinical monitoring']},
+    {id:'stage4',title:'My journey is my own',period:'Every stage',desc:'You do not need to track every change or compare yourself with other people. Your comfort, wellbeing and goals matter.',items:['Celebrate a personal win','Give myself permission to rest']}
+   ];
+   const checks=get('timelineChecks',{});
+   $('learnContent').innerHTML='<div class="card softpink"><div class="eyebrow">A GENTLE GUIDE</div><h2 style="margin:5px 0 8px">Changes over time</h2><p class="sub">These broad ranges are educational context, not a prediction. Effects depend on the person and their treatment. Your clinician can give advice for your specific situation.</p></div>'+stages.map((s,i)=>`<div class="card"><div class="row"><div class="iconbox ${i%2?'lilacbg':'pinkbg'}">${['🌱','🌷','✨','💗'][i]}</div><div class="grow"><span class="pill">${s.period}</span><h3 style="margin-top:8px">${s.title}</h3><p class="sub">${s.desc}</p></div></div>${s.items.map((item,j)=>{let key=s.id+'_'+j;return `<div class="checkrow"><input type="checkbox" id="${key}" ${checks[key]?'checked':''} onchange="toggleTimeline('${key}',this.checked)"><label for="${key}">${item}</label></div>`}).join('')}</div>`).join('')+'<div class="notice purple">The checkboxes are personal reflection prompts, not medical milestones you must reach.</div>';
+   return;
+ }
+ let arr=lessons[id]||lessons.basics;
+ $('learnContent').innerHTML=arr.map((l,i)=>`<details class="lesson" ${i===0?'open':''}><summary>${l[0]}</summary><p>${l[1]}</p></details>`).join('')
+}
+function toggleTimeline(key,value){let checks=get('timelineChecks',{});checks[key]=value;put('timelineChecks',checks)}
+function addGoal(){let t=$('goalText').value.trim();if(!t)return;let g=get('goals',[]);g.push({id:Date.now(),text:t,done:false});put('goals',g);$('goalText').value='';renderGoals()}
+function renderGoals(){let g=get('goals',[]);$('goalList').innerHTML=g.length?g.map(x=>`<div class="checkrow"><input type="checkbox" id="goal${x.id}" ${x.done?'checked':''} onchange="toggleGoal(${x.id},this.checked)"><label for="goal${x.id}" style="${x.done?'text-decoration:line-through;color:#99889b':''}">${esc(x.text)}</label><button class="danger small" onclick="deleteGoal(${x.id})">×</button></div>`).join(''):'<div class="empty">Your goals can be tiny, joyful or practical 🌸</div>'}
+function toggleGoal(id,v){let g=get('goals',[]);let x=g.find(x=>x.id===id);if(x)x.done=v;put('goals',g);renderGoals()}
+function deleteGoal(id){put('goals',get('goals',[]).filter(x=>x.id!==id));renderGoals()}
+function saveJournal(){let text=$('journalText').value.trim(),date=$('journalDate').value;if(!text){alert('Write a little note first.');return}let e=get('journals',[]);e.unshift({id:Date.now(),date,text});put('journals',e);$('journalText').value='';renderJournals();alert('Journal entry saved on this device.')}
+function renderJournals(){let e=get('journals',[]);$('journalList').innerHTML=e.length?e.map(x=>`<div class="card"><div class="barline"><span class="pill">${esc(x.date)}</span><button class="danger small" onclick="deleteJournal(${x.id})">Delete</button></div><p style="white-space:pre-wrap;margin-bottom:0">${esc(x.text)}</p></div>`).join(''):'<div class="card empty">Your first entry can start whenever you feel ready 🌸</div>'}
+function deleteJournal(id){put('journals',get('journals',[]).filter(x=>x.id!==id));renderJournals()}
+function saveField(id,msg){if(id==='beautyNote'){let notes=get('beautyNotes',{});notes[currentBeautyCategory]=$(id).value;put('beautyNotes',notes)}else put(id,$(id).value);alert(msg)}
+
+
+const productCatalog={
+ skin:[
+  {name:'Simple Kind to Skin Facial Wash',price:'Check retailer',type:'Gentle cleanser',shop:'Boots',url:'https://www.boots.com/simple/all-simple-products',desc:'An everyday cleanser option.'},
+  {name:'Simple Hydrating Light Moisturiser',price:'Check retailer',type:'Moisturiser',shop:'Boots',url:'https://www.boots.com/simple/all-simple-products',desc:'Lightweight hydration for a basic routine.'},
+  {name:'Simple Kind to Skin SPF 50 Moisturiser',price:'Check retailer',type:'SPF 50',shop:'Boots',url:'https://www.boots.com/simple/all-simple-products',desc:'Daily sun protection option; follow label directions.'},
+  {name:'The Ordinary Squalane Cleanser',price:'Check retailer',type:'Cleanser',shop:'The Ordinary',url:'https://theordinary.com/',desc:'A cleanser to compare with your skin’s needs.'},
+  {name:'e.l.f. Holy Hydration! Face Cream',price:'Check retailer',type:'Moisturiser',shop:'Boots',url:'https://www.boots.com/elf',desc:'Explore moisturisers and hydration products.'},
+  {name:'Simple Micellar Cleansing Water',price:'Check retailer',type:'Makeup remover',shop:'Superdrug',url:'https://www.superdrug.com/skin/simple/b/418029',desc:'A possible first cleanse for makeup or sunscreen.'}
+ ],
+ makeup:[
+  {name:'e.l.f. Power Grip Primer',price:'Check retailer',type:'Primer',shop:'Boots',url:'https://www.boots.com/elf',desc:'Explore primers for makeup prep.'},
+  {name:'e.l.f. Halo Glow Liquid Filter',price:'Check retailer',type:'Glow base',shop:'Boots',url:'https://www.boots.com/elf',desc:'A glowy base option; choose a shade that suits you.'},
+  {name:'Maybelline Fit Me Foundation',price:'Check retailer',type:'Foundation',shop:'Boots',url:'https://www.boots.com/maybelline',desc:'Explore coverage and shade options.'},
+  {name:'e.l.f. Putty Blush',price:'Check retailer',type:'Blush',shop:'Boots',url:'https://www.boots.com/elf',desc:'Creamy blush options for a soft flush.'},
+  {name:'e.l.f. Brow Laminating Gel',price:'Check retailer',type:'Brow gel',shop:'Boots',url:'https://www.boots.com/elf',desc:'A simple brow styling option.'},
+  {name:'e.l.f. Glow Reviver Lip Oil',price:'Check retailer',type:'Lip colour',shop:'Boots',url:'https://www.boots.com/elf',desc:'A glossy lip option for a fresh finish.'},
+  {name:'Makeup brushes & sponges',price:'Browse options',type:'Tools',shop:'Boots',url:'https://www.boots.com/beauty/makeup/makeup-brushes',desc:'Tools to help blend products comfortably.'}
+ ],
+ hair:[
+  {name:'Shampoo for your hair type',price:'Browse options',type:'Shampoo',shop:'Superdrug',url:'https://www.superdrug.com/Hair/c/hair',desc:'Choose for your scalp and hair needs.'},
+  {name:'Conditioner',price:'Browse options',type:'Conditioner',shop:'Boots',url:'https://www.boots.com/beauty/hair',desc:'Conditioner can help detangle and soften lengths.'},
+  {name:'Umberto Giannini Curl Jelly',price:'Check retailer',type:'Curl styling',shop:'Superdrug',url:'https://www.superdrug.com/Hair/c/hair',desc:'A styling option for curls and waves.'},
+  {name:'Heat protection spray',price:'Browse options',type:'Heat protection',shop:'Boots',url:'https://www.boots.com/beauty/hair',desc:'Use a suitable heat protectant before hot tools.'},
+  {name:'Hair masks & treatments',price:'Browse options',type:'Treatment',shop:'Boots',url:'https://www.boots.com/beauty/hair',desc:'Optional care for dry or treated hair.'},
+  {name:'Hair tools & accessories',price:'Browse options',type:'Tools',shop:'Superdrug',url:'https://www.superdrug.com/Hair/c/hair',desc:'Brushes, clips, styling tools and accessories.'}
+ ],
+ brows:[
+  {name:'Clear brow gel',price:'Browse options',type:'Brow styling',shop:'Boots',url:'https://www.boots.com/elf',desc:'Brush brows into place with a light touch.'},
+  {name:'Brow pencil',price:'Browse options',type:'Definition',shop:'Boots',url:'https://www.boots.com/elf',desc:'Use light, short strokes to fill sparse areas.'},
+  {name:'Brow powder',price:'Browse options',type:'Soft definition',shop:'Superdrug',url:'https://www.superdrug.com/make-up/eyes/eyebrows/c/pt_makeup_eyes_eyebrows',desc:'A softer option for a diffused brow.'},
+  {name:'Spoolie brushes',price:'Browse options',type:'Tools',shop:'Boots',url:'https://www.boots.com/beauty/makeup/makeup-brushes',desc:'Brush hairs into place and soften product.'},
+  {name:'Brow shaping products',price:'Browse options',type:'Grooming',shop:'Superdrug',url:'https://www.superdrug.com/make-up/eyes/eyebrows/c/pt_makeup_eyes_eyebrows',desc:'Explore options and choose what feels comfortable.'}
+ ],
+ style:[
+  {name:'Dresses',price:'Browse styles',type:'Clothing',shop:'New Look',url:'https://www.newlook.com/uk/womens/clothing/dresses/c/uk-womens-clothing-dresses',desc:'Day dresses, occasion styles and easy layers.'},
+  {name:'Shirts & blouses',price:'Browse styles',type:'Tops',shop:'Next',url:'https://www.next.co.uk/shop/gender-women-productaffiliation-shirtsandblouses-0',desc:'Casual shirts, blouses and smarter options.'},
+  {name:'Trousers & jeans',price:'Browse styles',type:'Bottoms',shop:'M&S',url:'https://www.marksandspencer.com/l/women/trousers',desc:'Explore different cuts, rises and fits.'},
+  {name:'Skirts',price:'Browse styles',type:'Clothing',shop:'New Look',url:'https://www.newlook.com/uk/womens/clothing/skirts/c/uk-womens-clothing-skirts',desc:'Mini, midi and maxi styles to try.'},
+  {name:'Shoes',price:'Browse styles',type:'Footwear',shop:'ASOS',url:'https://www.asos.com/women/shoes/',desc:'Flats, trainers, boots, heels and more.'},
+  {name:'Jackets & coats',price:'Browse styles',type:'Outerwear',shop:'Next',url:'https://www.next.co.uk/shop/gender-women-category-coatsandjackets-0',desc:'Layers to finish an outfit in your own way.'},
+  {name:'Bags & accessories',price:'Browse styles',type:'Accessories',shop:'New Look',url:'https://www.newlook.com/uk/womens/accessories/c/uk-womens-accessories',desc:'Small details can refresh a look.'}
+ ],
+ wigs:[
+  {name:'Everyday synthetic wigs',price:'Browse styles',type:'Wigs',shop:'Simply Wigs',url:'https://www.simplywigs.co.uk/',desc:'Explore easy-wear styles in different lengths and colours.'},
+  {name:'Lace-front wigs',price:'Browse styles',type:'Wigs',shop:'Simply Wigs',url:'https://www.simplywigs.co.uk/',desc:'Lace-front designs can offer a natural-looking hairline when fitted and styled well.'},
+  {name:'Human-hair wigs',price:'Browse styles',type:'Wigs',shop:'Simply Wigs',url:'https://www.simplywigs.co.uk/',desc:'Often more versatile for styling, usually at a higher price.'},
+  {name:'Wig caps & grips',price:'Browse options',type:'Wig accessories',shop:'Simply Wigs',url:'https://www.simplywigs.co.uk/',desc:'Accessories can help with comfort and secure fit.'},
+  {name:'Wig care & shampoo',price:'Browse options',type:'Wig care',shop:'Simply Wigs',url:'https://www.simplywigs.co.uk/',desc:'Use care products suited to the wig fibre and follow its instructions.'},
+  {name:'Wig styling inspiration',price:'Browse ideas',type:'Hair inspiration',shop:'Pinterest',url:'https://www.pinterest.co.uk/search/pins/?q=wig%20hairstyles',desc:'Save styles, fringes, lengths and colours you love.'}
+ ]
+};
+const beautyPageMeta={
+ skin:{title:'Skincare',intro:'A simple routine, products to explore, and choices for different skin needs.',icon:'🧴'},
+ makeup:{title:'Makeup',intro:'Find your base, blush, brows, lips and tools — play with the looks you love.',icon:'💄'},
+ hair:{title:'Hair care & styling',intro:'Whether your hair is straight, wavy, curly, coily, short or long, find products and tools to explore.',icon:'🪮'},
+ brows:{title:'Brows',intro:'Shape, define or simply groom. There is no one right brow shape.',icon:'🤎'},
+ style:{title:'Clothes & personal style',intro:'Dresses, shirts, trousers, skirts, shoes and accessories — build a wardrobe that feels like you.',icon:'👗'},
+ wigs:{title:'Wigs & hair inspiration',intro:'Your hair journey is your own. Whether you are growing your hair, wearing wigs, or switching things up, there are so many beautiful ways to express your style.',icon:'🎀'}
+};
+const productIndex={skin:0,makeup:0,hair:0,brows:0,style:0,wigs:0};
+function productImageFor(category){
+ const images={
+  skin:'https://media.ultainc.com/i/ulta/UB_Media_mainimage?fmt=auto&w=1200',
+  makeup:'https://images.ctfassets.net/daem4o9l2hfd/ma-4deb56a9-c115-43af-b9d2-34d461f1cd32-mobile/051d38bc9138e8c6370e5e8af7a41a0b/september-2022-glam-bag-plus-build-your-bag-spoilers-Thumbnail.jpg',
+  hair:'https://preservebeauty.com/cdn/shop/files/55.jpg?v=1743267462&width=1600',
+  brows:'https://media.ultainc.com/i/ulta/UB_Media_mainimage?fmt=auto&w=1200',
+  style:'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=85',
+  wigs:'https://www.gabbysbeautysupplies.ca/cdn/shop/collections/shop-all.png?v=1777018605'
+ };
+ return images[category]||images.skin;
+}
+function renderProducts(category='skin'){
+ const el=$('productGrid');if(!el)return;
+ const items=productCatalog[category]||productCatalog.skin;
+ const idx=productIndex[category]||0;
+ const p=items[idx];
+ const meta=beautyPageMeta[category]||beautyPageMeta.skin;
+ const saved=get('savedProducts',[]);
+ el.innerHTML=`<div class="product-carousel">
+  <div class="carousel-head"><span class="pill">${meta.icon} ${idx+1} of ${items.length}</span><span class="mini">Swipe to explore</span></div>
+  ${category==='wigs'?'<div class="wig-note"><strong>💕 Your hair, your way</strong><p>You do not have to grow your own hair to have a style you adore. Wigs can be playful, practical, protective or glamorous — choose what makes you feel good.</p></div>':''}
+  <div class="product-slide" id="productSlide" ontouchstart="productTouchStart(event)" ontouchend="productTouchEnd(event)">
+   <div class="product-art"><img class="product-photo" src="${productImageFor(category)}" alt="${esc(meta.title)} inspiration image" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="product-symbol" style="display:none">${meta.icon}</div><span class="image-note">Inspiration image</span></div>
+   <div class="product-info"><span class="pill">${esc(p.type)}</span><h3 style="margin-top:8px">${esc(p.name)}</h3><div class="product-price">${esc(p.price)}</div><p>${esc(p.desc)}</p><p class="mini">Retailer: ${esc(p.shop)} · Links open the retailer's category page; check current stock and prices.</p>
+   <div class="product-actions"><a href="${p.url}" target="_blank" rel="noopener">Explore ↗</a><button onclick="saveProduct('${category}',${idx})">${saved.some(x=>x.key===category+'_'+idx)?'♥ Saved':'♡ Save'}</button></div></div>
+  </div>
+  <div class="carousel-controls"><button class="secondary" onclick="moveProduct('${category}',-1)" ${idx===0?'disabled':''}>← Previous</button><div class="dots">${items.map((_,i)=>`<button aria-label="Show product ${i+1}" class="${i===idx?'active':''}" onclick="setProduct('${category}',${i})"></button>`).join('')}</div><button class="primary" onclick="moveProduct('${category}',1)" ${idx===items.length-1?'disabled':''}>Next →</button></div>
+ </div>`;
+}
+function setProduct(category,index){productIndex[category]=index;renderProducts(category)}
+function moveProduct(category,delta){const max=(productCatalog[category]||[]).length-1;productIndex[category]=Math.max(0,Math.min(max,(productIndex[category]||0)+delta));renderProducts(category)}
+let productTouchX=null;
+function productTouchStart(e){productTouchX=e.changedTouches[0].clientX}
+function productTouchEnd(e){if(productTouchX===null)return;let delta=e.changedTouches[0].clientX-productTouchX;if(Math.abs(delta)>45){const category=currentBeautyCategory;if(delta<0)moveProduct(category,1);else moveProduct(category,-1)}productTouchX=null}
+let currentBeautyCategory='skin';
+function saveProduct(category,i){let list=get('savedProducts',[]);let key=category+'_'+i;if(!list.some(x=>x.key===key)){list.push({key,category,index:i,name:productCatalog[category][i].name,url:productCatalog[category][i].url});put('savedProducts',list);renderProducts(category);alert('Added to your beauty wishlist 💗')}else alert('Already in your wishlist 💗')}
+function moodItems(){return get('moodboard',[])}
+function addMoodImage(){
+ const file=$('moodImage').files[0];if(!file){alert('Choose a photo first.');return}
+ if(!file.type.startsWith('image/')){alert('Please choose an image file.');return}
+ if(file.size>3*1024*1024){alert('Please choose an image under 3 MB so the board can save reliably.');return}
+ const reader=new FileReader();reader.onload=()=>{let items=moodItems();items.unshift({id:Date.now(),type:'image',title:$('moodImageTitle').value.trim()||'My inspiration',src:reader.result});try{put('moodboard',items);$('moodImage').value='';$('moodImageTitle').value='';renderMoodboard()}catch(e){alert('This photo may be too large for browser storage. Try a smaller image.')}};reader.readAsDataURL(file)
+}
+function addMoodLink(){
+ let url=$('moodUrl').value.trim();if(!url){alert('Paste a link first.');return}
+ try{let u=new URL(url);if(!['http:','https:'].includes(u.protocol))throw new Error();let items=moodItems();items.unshift({id:Date.now(),type:'link',title:$('moodLinkTitle').value.trim()||u.hostname,url:u.href,src:u.href});put('moodboard',items);$('moodUrl').value='';$('moodLinkTitle').value='';renderMoodboard()}catch(e){alert('Please enter a valid http or https link.')}
+}
+let moodViewerIndex=0,moodViewerTouchX=0;
+function openMoodViewer(index){
+ const items=moodItems();if(!items.length)return;
+ moodViewerIndex=Math.max(0,Math.min(index,items.length-1));
+ let modal=$('moodViewer');
+ if(!modal){modal=document.createElement('div');modal.id='moodViewer';modal.className='mood-viewer';modal.innerHTML=`<button class="viewer-close" onclick="closeMoodViewer()" aria-label="Close viewer">×</button><button class="viewer-arrow viewer-prev" onclick="stepMoodViewer(-1)" aria-label="Previous image">‹</button><div class="viewer-content" id="viewerContent" ontouchstart="moodViewerTouchStart(event)" ontouchend="moodViewerTouchEnd(event)"></div><button class="viewer-arrow viewer-next" onclick="stepMoodViewer(1)" aria-label="Next image">›</button><div class="viewer-counter" id="viewerCounter"></div>`;document.body.appendChild(modal);modal.addEventListener('click',e=>{if(e.target===modal)closeMoodViewer()})}
+ modal.style.display='flex';document.body.style.overflow='hidden';drawMoodViewer();
+}
+function drawMoodViewer(){
+ const items=moodItems();if(!items.length){closeMoodViewer();return}
+ moodViewerIndex=(moodViewerIndex+items.length)%items.length;const item=items[moodViewerIndex];
+ $('viewerContent').innerHTML=`${item.type==='image'?`<img src="${item.src}" alt="${esc(item.title)}">`:`<div class="viewer-link"><div>🔗</div><h3>${esc(item.title)}</h3><p>Saved inspiration link</p><a href="${item.url}" target="_blank" rel="noopener">Open original link ↗</a></div>`}<p class="viewer-title">${esc(item.title)}</p>`;
+ $('viewerCounter').textContent=`${moodViewerIndex+1} of ${items.length}`;
+}
+function stepMoodViewer(direction){moodViewerIndex+=direction;drawMoodViewer()}
+function closeMoodViewer(){const modal=$('moodViewer');if(modal)modal.style.display='none';document.body.style.overflow=''}
+function moodViewerTouchStart(e){moodViewerTouchX=e.changedTouches[0].clientX}
+function moodViewerTouchEnd(e){const dx=e.changedTouches[0].clientX-moodViewerTouchX;if(Math.abs(dx)>45)stepMoodViewer(dx<0?1:-1)}
+document.addEventListener('keydown',e=>{const modal=$('moodViewer');if(!modal||modal.style.display==='none')return;if(e.key==='Escape')closeMoodViewer();if(e.key==='ArrowRight')stepMoodViewer(1);if(e.key==='ArrowLeft')stepMoodViewer(-1)});
+function renderMoodboard(){
+ const el=$('moodGrid');if(!el)return;let items=moodItems();
+ if(!items.length){el.innerHTML='<div class="card empty" style="break-inside:avoid">Your inspiration wall is waiting for its first pin ✨</div>';return}
+ el.innerHTML=items.map((x,i)=>`<article class="mood-pin">${x.type==='image'?`<button class="mood-image-open" onclick="openMoodViewer(${i})" aria-label="View ${esc(x.title)}"><img src="${x.src}" alt="${esc(x.title)}"></button>`:`<button class="mood-image-open" onclick="openMoodViewer(${i})" aria-label="Preview ${esc(x.title)}"><img src="${x.src}" alt="Link preview image" loading="lazy" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;padding:20px;background:#f4eafa;color:#59305e;text-align:center;font-weight:800&quot;>↗ Link saved — tap to preview</div>')"></button>`}<div class="pin-info"><p><strong>${esc(x.title)}</strong></p><div class="pin-actions">${x.type==='link'?`<a href="${x.url}" target="_blank" rel="noopener">Open link ↗</a>`:''}<button onclick="deleteMood(${x.id})">Remove</button></div></div></article>`).join('')
+}
+function deleteMood(id){put('moodboard',moodItems().filter(x=>x.id!==id));renderMoodboard()}
+function clearMoodboard(){if(confirm('Clear all pins from this moodboard?')){put('moodboard',[]);renderMoodboard()}}
+
+$('beautyNote').value=get('beautyNote','');let r=get('refill',{});$('refillDate').value=r.date||'';$('refillNote').value=r.note||'';if(r.date||r.note)$('refillSaved').textContent='Your saved refill note is loaded.';
+renderMeds();renderJournals();renderGoals();renderBeauty('skin');renderMoodboard();renderLearn('basics');
+</script></body></html>

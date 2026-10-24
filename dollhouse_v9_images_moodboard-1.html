@@ -237,7 +237,7 @@ const productCatalog={
  skin:[
   {name:'Simple Kind to Skin Facial Wash',price:'Check retailer',type:'Gentle cleanser',shop:'Boots',url:'https://www.boots.com/simple/all-simple-products',desc:'An everyday cleanser option.'},
   {name:'Simple Hydrating Light Moisturiser',price:'Check retailer',type:'Moisturiser',shop:'Boots',url:'https://www.boots.com/simple/all-simple-products',desc:'Lightweight hydration for a basic routine.'},
-  {name:'Simple Kind to Skin SPF 50 Moisturiser',price:'Check retailer',type:'SPF 50',shop:'Boots',url:'https://www.boots.com/simple/all-simple-products',desc:'Daily sun protection option; follow label directions.'},
+  {name:'Simple Kind to Skin SPF 50 Moisturiser',price:'Check retailer',type:'SPF 50',shop:'Boots',url:'https://www.boots.com/toiletries/suncare/sunprotection/simple-kind-to-skin-spf-50-moisturiser-40ml-10387961',desc:'Daily sun protection option; follow label directions.'},
   {name:'The Ordinary Squalane Cleanser',price:'Check retailer',type:'Cleanser',shop:'The Ordinary',url:'https://theordinary.com/',desc:'A cleanser to compare with your skin’s needs.'},
   {name:'e.l.f. Holy Hydration! Face Cream',price:'Check retailer',type:'Moisturiser',shop:'Boots',url:'https://www.boots.com/elf',desc:'Explore moisturisers and hydration products.'},
   {name:'Simple Micellar Cleansing Water',price:'Check retailer',type:'Makeup remover',shop:'Superdrug',url:'https://www.superdrug.com/skin/simple/b/418029',desc:'A possible first cleanse for makeup or sunscreen.'}
@@ -277,7 +277,7 @@ const productCatalog={
  ],
  wigs:[
   {name:'Everyday synthetic wigs',price:'Browse styles',type:'Wigs',shop:'Simply Wigs',url:'https://www.simplywigs.co.uk/',desc:'Explore easy-wear styles in different lengths and colours.'},
-  {name:'Lace-front wigs',price:'Browse styles',type:'Wigs',shop:'Simply Wigs',url:'https://www.simplywigs.co.uk/',desc:'Lace-front designs can offer a natural-looking hairline when fitted and styled well.'},
+  {name:'Lace-front wigs',price:'Browse styles',type:'Wigs',shop:'Simply Wigs',url:'https://www.simplywigs.co.uk/ladies-wigs/wig-type/lace-front-wigs/',desc:'Lace-front designs can offer a natural-looking hairline when fitted and styled well.'},
   {name:'Human-hair wigs',price:'Browse styles',type:'Wigs',shop:'Simply Wigs',url:'https://www.simplywigs.co.uk/',desc:'Often more versatile for styling, usually at a higher price.'},
   {name:'Wig caps & grips',price:'Browse options',type:'Wig accessories',shop:'Simply Wigs',url:'https://www.simplywigs.co.uk/',desc:'Accessories can help with comfort and secure fit.'},
   {name:'Wig care & shampoo',price:'Browse options',type:'Wig care',shop:'Simply Wigs',url:'https://www.simplywigs.co.uk/',desc:'Use care products suited to the wig fibre and follow its instructions.'},
@@ -293,16 +293,32 @@ const beautyPageMeta={
  wigs:{title:'Wigs & hair inspiration',intro:'Your hair journey is your own. Whether you are growing your hair, wearing wigs, or switching things up, there are so many beautiful ways to express your style.',icon:'🎀'}
 };
 const productIndex={skin:0,makeup:0,hair:0,brows:0,style:0,wigs:0};
-function productImageFor(category){
+function productImageFor(category,p){
+ const name=(p&&p.name||'').toLowerCase();
  const images={
-  skin:'https://media.ultainc.com/i/ulta/UB_Media_mainimage?fmt=auto&w=1200',
-  makeup:'https://images.ctfassets.net/daem4o9l2hfd/ma-4deb56a9-c115-43af-b9d2-34d461f1cd32-mobile/051d38bc9138e8c6370e5e8af7a41a0b/september-2022-glam-bag-plus-build-your-bag-spoilers-Thumbnail.jpg',
-  hair:'https://preservebeauty.com/cdn/shop/files/55.jpg?v=1743267462&width=1600',
-  brows:'https://media.ultainc.com/i/ulta/UB_Media_mainimage?fmt=auto&w=1200',
-  style:'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=85',
-  wigs:'https://www.gabbysbeautysupplies.ca/cdn/shop/collections/shop-all.png?v=1777018605'
+  'simple kind to skin facial wash':'https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=1200&q=85',
+  'simple hydrating light moisturiser':'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1200&q=85',
+  'simple kind to skin spf 50 moisturiser':'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=85',
+  'the ordinary squalane cleanser':'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=1200&q=85',
+  'e.l.f. holy hydration! face cream':'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1200&q=85',
+  'simple micellar cleansing water':'https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=1200&q=85',
+  'lace-front wigs':'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=85',
+  'everyday synthetic wigs':'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=85',
+  'human-hair wigs':'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=85',
+  'wig caps & grips':'https://images.unsplash.com/photo-1590736969955-71cc94901144?auto=format&fit=crop&w=1200&q=85',
+  'wig care & shampoo':'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1200&q=85',
+  'wig styling inspiration':'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=85'
  };
- return images[category]||images.skin;
+ if(images[name]) return images[name];
+ const categoryImages={
+  skin:'https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=1200&q=85',
+  makeup:'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=85',
+  hair:'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1200&q=85',
+  brows:'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=85',
+  style:'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=85',
+  wigs:'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=85'
+ };
+ return categoryImages[category]||categoryImages.skin;
 }
 function renderProducts(category='skin'){
  const el=$('productGrid');if(!el)return;
@@ -315,7 +331,7 @@ function renderProducts(category='skin'){
   <div class="carousel-head"><span class="pill">${meta.icon} ${idx+1} of ${items.length}</span><span class="mini">Swipe to explore</span></div>
   ${category==='wigs'?'<div class="wig-note"><strong>💕 Your hair, your way</strong><p>You do not have to grow your own hair to have a style you adore. Wigs can be playful, practical, protective or glamorous — choose what makes you feel good.</p></div>':''}
   <div class="product-slide" id="productSlide" ontouchstart="productTouchStart(event)" ontouchend="productTouchEnd(event)">
-   <div class="product-art"><img class="product-photo" src="${productImageFor(category)}" alt="${esc(meta.title)} inspiration image" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="product-symbol" style="display:none">${meta.icon}</div><span class="image-note">Inspiration image</span></div>
+   <div class="product-art"><img class="product-photo" src="${productImageFor(category,p)}" alt="${esc(p.name)} product image" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="product-symbol" style="display:none">${meta.icon}</div><span class="image-note">Inspiration image</span></div>
    <div class="product-info"><span class="pill">${esc(p.type)}</span><h3 style="margin-top:8px">${esc(p.name)}</h3><div class="product-price">${esc(p.price)}</div><p>${esc(p.desc)}</p><p class="mini">Retailer: ${esc(p.shop)} · Links open the retailer's category page; check current stock and prices.</p>
    <div class="product-actions"><a href="${p.url}" target="_blank" rel="noopener">Explore ↗</a><button onclick="saveProduct('${category}',${idx})">${saved.some(x=>x.key===category+'_'+idx)?'♥ Saved':'♡ Save'}</button></div></div>
   </div>

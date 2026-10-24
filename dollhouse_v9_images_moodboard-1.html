@@ -124,7 +124,7 @@ footer{text-align:center;color:#a48ca4;font-size:10px;padding:14px 12px;line-hei
 <section id="moodboard" class="view">
  <div class="head"><div><div class="eyebrow">SAVE YOUR INSPIRATION</div><h2>My moodboard 📌</h2></div><span class="pill lav">Pinterest-style</span></div>
  <div class="card softpink"><h3>Your own little inspiration wall</h3><p class="sub">Add photos from your gallery or paste a link. Link previews show an image when the website allows it. Everything is stored locally in this browser.</p></div>
- <div class="card"><h3>＋ Add a photo from your device</h3><label for="moodImage">Choose photo</label><input id="moodImage" type="file" accept="image/*"><label for="moodImageTitle">Caption (optional)</label><input id="moodImageTitle" placeholder="e.g. Makeup look to try"><button class="primary full" onclick="addMoodImage()">Add to moodboard</button></div>
+ <div class="card"><h3>＋ Add a photo from your device</h3><label for="moodImage">Choose photo</label><input id="moodImage" type="file" accept="image/*" multiple><p class="mini">You can select several photos at once. Dollhouse will resize them before saving.</p><label for="moodImageTitle">Caption (optional)</label><input id="moodImageTitle" placeholder="e.g. Makeup look to try"><button class="primary full" onclick="addMoodImage()">Add to moodboard</button></div>
  <div class="card"><h3>↗ Save a link</h3><label for="moodUrl">Website or image link</label><input id="moodUrl" type="url" placeholder="https://..."><label for="moodLinkTitle">Caption (optional)</label><input id="moodLinkTitle" placeholder="e.g. Outfit inspiration"><button class="secondary full" onclick="addMoodLink()">Preview & save link</button><p class="mini">Some websites block image previews. If that happens, the saved card will still include a link you can open.</p></div>
  <div class="head"><h2>Your pins</h2><button class="secondary small" onclick="clearMoodboard()">Clear board</button></div><div id="moodGrid" class="mood-grid"></div>
  <div class="notice">Privacy note: photos and notes stay in this browser on this device. This prototype is not encrypted or synced.</div>
@@ -379,11 +379,41 @@ function productTouchEnd(e){if(productTouchX===null)return;let delta=e.changedTo
 let currentBeautyCategory='skin';
 function saveProduct(category,i){let list=get('savedProducts',[]);let key=category+'_'+i;if(!list.some(x=>x.key===key)){list.push({key,category,index:i,name:productCatalog[category][i].name,url:productCatalog[category][i].url});put('savedProducts',list);renderProducts(category);alert('Added to your beauty wishlist 💗')}else alert('Already in your wishlist 💗')}
 function moodItems(){return get('moodboard',[])}
-function addMoodImage(){
- const file=$('moodImage').files[0];if(!file){alert('Choose a photo first.');return}
- if(!file.type.startsWith('image/')){alert('Please choose an image file.');return}
- if(file.size>3*1024*1024){alert('Please choose an image under 3 MB so the board can save reliably.');return}
- const reader=new FileReader();reader.onload=()=>{let items=moodItems();items.unshift({id:Date.now(),type:'image',title:$('moodImageTitle').value.trim()||'My inspiration',src:reader.result});try{put('moodboard',items);$('moodImage').value='';$('moodImageTitle').value='';renderMoodboard()}catch(e){alert('This photo may be too large for browser storage. Try a smaller image.')}};reader.readAsDataURL(file)
+async function compressMoodPhoto(file){
+ return new Promise((resolve,reject)=>{
+  const img=new Image();
+  const url=URL.createObjectURL(file);
+  img.onload=()=>{
+   try{
+    const maxSide=1400,scale=Math.min(1,maxSide/Math.max(img.naturalWidth,img.naturalHeight));
+    const canvas=document.createElement('canvas');
+    canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));
+    const ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0,canvas.width,canvas.height);
+    let quality=.78,data=canvas.toDataURL('image/jpeg',quality);
+    while(data.length>520000&&quality>.42){quality-=.08;data=canvas.toDataURL('image/jpeg',quality)}
+    URL.revokeObjectURL(url);resolve(data);
+   }catch(e){URL.revokeObjectURL(url);reject(e)}
+  };
+  img.onerror=()=>{URL.revokeObjectURL(url);reject(new Error('Could not read this image'))};
+  img.src=url;
+ });
+}
+async function addMoodImage(){
+ const input=$('moodImage'),files=Array.from(input.files||[]);if(!files.length){alert('Choose one or more photos first.');return}
+ const caption=$('moodImageTitle').value.trim();let items=moodItems(),added=0,failed=0;
+ for(const file of files){
+  if(!file.type.startsWith('image/')){failed++;continue}
+  try{
+   const src=await compressMoodPhoto(file);
+   const entry={id:Date.now()+added,type:'image',title:caption||file.name.replace(/\.[^.]+$/,'')||'My inspiration',src};
+   const next=[entry,...items];
+   try{put('moodboard',next);items=next;added++}catch(e){failed++;break}
+  }catch(e){failed++}
+ }
+ input.value='';$('moodImageTitle').value='';renderMoodboard();
+ if(failed&&added)alert(added+' photo(s) added. '+failed+' could not be saved because browser storage may be full. Try removing a few old pins or choosing fewer photos.');
+ else if(failed)alert('The browser could not save these photos. Storage may be full; try removing a few old pins and adding fewer photos.');
+ else alert(added+' photo(s) added to your moodboard 💗');
 }
 function addMoodLink(){
  let url=$('moodUrl').value.trim();if(!url){alert('Paste a link first.');return}

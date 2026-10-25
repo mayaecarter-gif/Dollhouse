@@ -8,10 +8,9 @@
 <style>
 :root{--ink:#2b1830;--plum:#29102f;--plum2:#4a2151;--pink:#d957a0;--pink2:#f2b6d5;--rose:#fbf0f6;--lilac:#d8c6ff;--lav:#f4effa;--peach:#f7e9e2;--mint:#e5f2ec;--paper:#fffafd;--white:#fff;--muted:#816d85;--line:#eadfea;--shadow:0 8px 24px #3510370a}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f6f1f6;color:var(--ink);font:15px/1.5 ui-rounded,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}.app{max-width:540px;margin:auto;min-height:100vh;background:var(--paper);padding-bottom:94px;box-shadow:0 0 60px #35103710}
-.hero{padding:22px 20px 18px;color:white;background:linear-gradient(145deg,#29102f,#432047 75%,#52274f);position:relative;overflow:hidden;border-radius:0 0 30px 30px}
-.hero:after{content:"✦  ·  ✧";position:absolute;right:17px;top:76px;font-size:24px;letter-spacing:8px;color:#ffc1e3;opacity:.8;pointer-events:none}.topline{display:flex;justify-content:space-between;align-items:center}.brand{font-size:12px;letter-spacing:.18em;font-weight:900;color:#ffb9df}.avatar{width:43px;height:43px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(145deg,#ff9bd0,#b38bff);color:#35123b;font-size:23px;box-shadow:0 6px 22px #e93c9a35}
-h1{font-size:clamp(39px,9vw,54px);line-height:1.02;letter-spacing:-.05em;margin:18px 0 9px}h1 span{color:#ff9ed1}.hero p{margin:0;color:#f5e4f4;max-width:420px;font-size:15px}.hero-community{display:block;width:calc(100% + 32px);height:clamp(135px,35vw,185px);margin:4px -16px -1px;position:relative;z-index:0}.hero .quote{position:relative;z-index:1;margin:0 auto;padding:14px 15px;border:1px solid #ffffff2c;background:#ffffff12;border-radius:17px;width:100%;max-width:500px;text-align:center;font-weight:800;font-size:14px;box-shadow:0 6px 24px #1a09251c}
-@media(min-width:420px){.hero{padding:24px 25px 19px}.hero-community{width:calc(100% + 40px);margin:5px -20px -1px}}
+.hero{padding:22px 20px 20px;color:white;background:linear-gradient(145deg,#29102f,#432047 75%,#52274f);position:relative;overflow:hidden;border-radius:0 0 30px 30px}
+.hero:after{content:"✦  ·  ✧";position:absolute;right:17px;top:76px;font-size:24px;letter-spacing:8px;color:#ffc1e3;opacity:.8}.topline{display:flex;justify-content:space-between;align-items:center}.brand{font-size:12px;letter-spacing:.18em;font-weight:900;color:#ffb9df}.avatar{width:43px;height:43px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(145deg,#ff9bd0,#b38bff);color:#35123b;font-size:23px;box-shadow:0 6px 22px #e93c9a35}
+h1{font-size:36px;line-height:1.02;letter-spacing:-.05em;margin:18px 0 9px}h1 span{color:#ff9ed1}.hero p{margin:0;color:#f5e4f4;max-width:340px;font-size:14px}.hero .quote{position:relative;z-index:1;margin-top:21px;padding:14px 15px;border:1px solid #ffffff2c;background:#ffffff12;border-radius:17px;max-width:420px;font-weight:700;font-size:14px}
 main{padding:19px 15px}.view{display:none}.view.active{display:block;animation:rise .22s ease}@keyframes rise{from{opacity:.55;transform:translateY(5px)}to{opacity:1;transform:none}}
 .head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:2px 2px 13px}h2{font-size:21px;line-height:1.15;letter-spacing:-.035em;margin:0}h3{font-size:15px;line-height:1.25;margin:0 0 5px}.sub{font-size:12px;color:var(--muted)}.eyebrow{font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:900;color:#b12c79}.pill{display:inline-flex;align-items:center;gap:4px;padding:5px 9px;border-radius:99px;background:#ffe2f1;color:#a91f6d;font-size:10px;font-weight:900;white-space:nowrap}.pill.lav{background:var(--lav);color:#6d4ba8}.pill.mint{background:var(--mint);color:#26745a}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.tile{min-height:148px;text-align:left;border:1px solid var(--line);border-radius:18px;padding:15px;background:white;color:var(--ink);box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .15s}.tile:active{transform:scale(.98)}.tile:after{content:""}.tile .emoji{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;font-size:24px;margin-bottom:12px}.tile strong{display:block;font-size:14px;margin-bottom:3px}.tile small{display:block;color:var(--muted);font-size:11px;line-height:1.35}.pinkbg{background:var(--rose)}.lilacbg{background:var(--lav)}.peachbg{background:var(--peach)}.mintbg{background:var(--mint)}
@@ -80,34 +79,7 @@ footer{text-align:center;color:#a48ca4;font-size:10px;padding:14px 12px;line-hei
 </style>
 </head>
 <body><div class="app">
-<header class="hero"><div class="topline"><div class="brand">DOLLHOUSE ✦ YOUR SPACE</div><div class="avatar">♡</div></div><h1>Dollhouse<span>.</span></h1><p>A little more confidence, a little more you. Your transition, your pace, your rules.</p>
-<svg class="hero-community" viewBox="0 0 540 150" role="img" aria-label="A diverse community standing together, including women of different body shapes and a wheelchair user" preserveAspectRatio="xMidYMax meet">
-<g fill="#d8bdcf" opacity=".88">
-<!-- landscape -->
-<path d="M0 112 Q65 84 120 104 T240 98 T360 103 T540 88 V150 H0Z" opacity=".18"/>
-<!-- left tall woman -->
-<g transform="translate(14 10)"><circle cx="29" cy="18" r="11"/><path d="M19 29 Q7 36 8 56 L1 100 Q0 107 7 108 Q12 108 14 99 L20 66 L22 91 L15 132 Q28 141 42 132 L36 91 L39 65 L45 100 Q47 108 53 106 Q58 104 55 96 L49 55 Q46 36 38 29Z"/></g>
-<!-- broad shoulder woman -->
-<g transform="translate(75 34)"><circle cx="25" cy="14" r="10"/><path d="M14 26 Q3 29 4 44 L0 74 Q0 81 6 81 Q10 81 11 74 L16 50 L17 69 L11 95 Q25 102 39 95 L33 69 L34 50 L39 75 Q41 81 46 79 Q51 77 48 70 L44 43 Q43 29 34 26Z"/></g>
-<!-- short petite person -->
-<g transform="translate(130 58)"><circle cx="18" cy="11" r="8"/><path d="M10 21 Q2 25 3 38 L0 54 Q0 59 5 59 Q9 59 10 53 L13 39 L14 53 L8 75 Q18 80 29 75 L24 53 L25 39 L29 54 Q31 59 35 57 Q39 55 37 50 L33 36 Q32 25 25 21Z"/></g>
-<!-- curvy person -->
-<g transform="translate(175 21)"><circle cx="25" cy="15" r="10"/><path d="M14 27 Q3 32 5 47 L1 72 Q0 80 6 80 Q11 80 12 73 L16 52 L17 77 Q9 101 9 127 Q25 136 41 127 Q41 102 33 77 L34 52 L39 74 Q41 80 47 78 Q52 76 49 69 L45 45 Q43 31 34 27Z"/></g>
-<!-- slim person -->
-<g transform="translate(237 37)"><circle cx="22" cy="13" r="9"/><path d="M13 24 Q5 29 6 42 L1 70 Q0 76 5 77 Q10 77 11 70 L16 49 L16 73 L12 105 Q22 110 32 105 L28 73 L28 49 L34 70 Q36 76 41 74 Q46 72 43 66 L38 41 Q37 29 30 24Z"/></g>
-<!-- tall broad figure -->
-<g transform="translate(286 12)"><circle cx="27" cy="17" r="11"/><path d="M16 29 Q3 34 4 52 L0 92 Q0 100 7 100 Q12 100 13 92 L18 62 L19 91 L12 132 Q27 140 42 132 L35 91 L36 62 L42 93 Q44 100 50 98 Q56 96 53 88 L49 51 Q47 34 38 29Z"/></g>
-<!-- wheelchair user -->
-<g transform="translate(344 52)"><circle cx="19" cy="10" r="8"/><path d="M12 20 Q4 23 5 34 L8 49 L20 49 L24 35 L31 45 L37 45 L36 38 L28 27 Q25 21 19 20Z"/><path d="M13 49 L8 61 L25 61 L31 50" fill="none" stroke="#d8bdcf" stroke-width="7" stroke-linecap="round"/><circle cx="22" cy="73" r="21" fill="none" stroke="#d8bdcf" stroke-width="5"/><circle cx="22" cy="73" r="3"/><path d="M22 73 L36 50 L48 50 M36 50 L31 36" fill="none" stroke="#d8bdcf" stroke-width="4" stroke-linecap="round"/></g>
-<!-- small person -->
-<g transform="translate(401 61)"><circle cx="17" cy="9" r="8"/><path d="M9 19 Q2 23 3 35 L0 51 Q0 56 5 56 Q9 56 10 50 L13 36 L13 52 L8 74 Q17 79 27 74 L22 52 L22 36 L26 51 Q28 56 32 54 Q36 52 34 47 L30 34 Q29 23 24 19Z"/></g>
-<!-- plus-size woman -->
-<g transform="translate(438 30)"><circle cx="25" cy="13" r="10"/><path d="M14 25 Q2 30 4 45 L1 67 Q0 74 6 75 Q12 76 13 68 L16 49 L15 76 Q6 100 10 123 Q25 132 40 123 Q44 100 35 76 L34 49 L38 68 Q40 75 46 73 Q51 71 48 64 L45 43 Q43 30 34 25Z"/></g>
-<!-- right tall person -->
-<g transform="translate(492 14)"><circle cx="19" cy="15" r="10"/><path d="M9 27 Q1 31 2 47 L0 87 Q0 94 6 94 Q11 94 11 86 L14 58 L14 91 L9 132 Q19 138 29 132 L25 91 L25 58 L29 87 Q30 94 36 92 Q41 90 39 83 L36 46 Q35 31 27 27Z"/></g>
-</g><path d="M0 139 H540" stroke="#d8bdcf" stroke-opacity=".4" stroke-width="2"/>
-</svg>
-<div class="quote" id="heroQuote">“You deserve to feel at home in yourself. 💗”</div></header>
+<header class="hero"><div class="topline"><div class="brand">DOLLHOUSE ✦ YOUR SPACE</div><div class="avatar">♡</div></div><h1>Dollhouse<span>.</span></h1><p>A little more confidence, a little more you. Your transition, your pace, your rules.</p><div class="quote" id="heroQuote">“You deserve to feel at home in yourself. 💗”</div></header>
 <main>
 <section id="home" class="view active">
  <div class="head"><div><div class="eyebrow">YOUR LITTLE CORNER</div><h2>Hey, gorgeous ✨</h2></div><span class="pill" id="today"></span></div>

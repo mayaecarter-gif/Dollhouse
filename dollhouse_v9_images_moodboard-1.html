@@ -399,7 +399,7 @@ let currentBeautyCategory='skin';
 function saveProduct(category,i){let list=get('savedProducts',[]);let key=category+'_'+i;if(!list.some(x=>x.key===key)){list.push({key,category,index:i,name:productCatalog[category][i].name,url:productCatalog[category][i].url});put('savedProducts',list);renderProducts(category);alert('Added to your beauty wishlist 💗')}else alert('Already in your wishlist 💗')}
 function moodItems(){return get('moodboard',[])}
 const moodImageUrls={};
-function moodAlbums(){let a=get('moodAlbums',null);if(!Array.isArray(a)||!a.length){a=[{id:'default',name:'My inspiration'}];put('moodAlbums',a)}return a}
+function moodAlbums(){let a=get('moodAlbums',null);if(!Array.isArray(a)||!a.length)a=[{id:'default',name:'My inspiration'}];const known=new Set(a.map(x=>x.id));const orphanIds=[...new Set(moodItems().map(x=>x.albumId||'default').filter(id=>!known.has(id)))];orphanIds.forEach((id,i)=>{a.push({id,name:orphanIds.length===1?'Recovered album':'Recovered album '+(i+1)});known.add(id)});if(orphanIds.length||!Array.isArray(get('moodAlbums',null))||!get('moodAlbums',[]).length)put('moodAlbums',a);return a}
 function activeMoodAlbum(){return get('activeMoodAlbum','default')}
 function targetMoodAlbum(){const id=activeMoodAlbum();if(id!=='all')return id;alert('You are viewing All photos. Choose a named album above before adding new photos.');return null}
 function selectMoodAlbum(id){put('activeMoodAlbum',id);renderMoodboard()}

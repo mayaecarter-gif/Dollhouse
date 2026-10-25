@@ -355,18 +355,16 @@ function productImageFor(category,p){
 }
 function productImageFailed(img,category){
  const fallback={
-  skin:'https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=900&q=85',
-  makeup:'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85',
-  hair:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=85',
-  brows:'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=85',
-  style:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=85',
-  wigs:'https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&w=900&q=85'
+  skin:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=85',
+  makeup:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85',
+  hair:'https://images.unsplash.com/photo-1600428853876-fb5a850b444f?auto=format&fit=crop&w=900&q=85',
+  brows:'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85',
+  style:'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=85',
+  wigs:'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85'
  };
  const symbol=img.nextElementSibling;
  if(!img.dataset.fallbackTried && fallback[category] && img.src!==fallback[category]){
-  img.dataset.fallbackTried='1';
-  img.src=fallback[category];
-  return;
+  img.dataset.fallbackTried='1';img.src=fallback[category];return;
  }
  img.style.display='none';
  if(symbol)symbol.style.display='grid';

@@ -16,7 +16,7 @@ main{padding:19px 15px}.view{display:none}.view.active{display:block;animation:r
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.tile{min-height:148px;text-align:left;border:1px solid var(--line);border-radius:18px;padding:15px;background:white;color:var(--ink);box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .15s}.tile:active{transform:scale(.98)}.tile:after{content:""}.tile .emoji{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;font-size:24px;margin-bottom:12px}.tile strong{display:block;font-size:14px;margin-bottom:3px}.tile small{display:block;color:var(--muted);font-size:11px;line-height:1.35}.pinkbg{background:var(--rose)}.lilacbg{background:var(--lav)}.peachbg{background:var(--peach)}.mintbg{background:var(--mint)}
 .card{background:white;border:1px solid var(--line);border-radius:20px;padding:15px;margin-bottom:12px;box-shadow:var(--shadow)}.card.softpink{background:linear-gradient(140deg,#fff0f8,#fffafd)}.card.dark{background:linear-gradient(145deg,#32163a,#522451);color:white;border:0}.card.dark .sub{color:#eed5e8}.row{display:flex;gap:12px;align-items:flex-start}.grow{flex:1;min-width:0}.iconbox{width:43px;height:43px;border-radius:15px;display:grid;place-items:center;font-size:22px;flex-shrink:0}.sectiongap{height:19px}.primary,.secondary,.ghost,.danger{border:0;border-radius:13px;padding:11px 14px;font-weight:800}.primary{background:linear-gradient(100deg,#e93191,#c52c91);color:white;box-shadow:0 5px 12px #6b2d5c14}.secondary{background:#f6e8f5;color:#632b63}.ghost{background:#ffffff20;color:inherit;border:1px solid #ffffff30}.danger{background:#fff0f2;color:#a32a4c}.small{font-size:11px;padding:8px 10px}.full{width:100%}
 label{display:block;font-size:12px;font-weight:800;color:#654d69;margin:8px 0 4px}input,textarea,select{width:100%;border:1px solid #e9d6e6;background:#fff;border-radius:12px;padding:11px 12px;color:var(--ink);outline-color:var(--pink)}textarea{resize:vertical}input[type=checkbox]{width:19px;height:19px;accent-color:var(--pink);margin:0}.checkrow{display:flex;align-items:center;gap:10px;padding:9px 0}.checkrow label{font-size:13px;font-weight:650;color:var(--ink);margin:0}.checkrow input{flex-shrink:0}.notice{background:#fff3dc;border:1px solid #f0dfb6;padding:12px;border-radius:14px;font-size:12px;color:#694e22;margin-bottom:12px}.notice.purple{background:#f3edff;border-color:#e1d5ff;color:#5e4687}.progress{height:7px;border-radius:9px;background:#f3deeb;overflow:hidden;margin:10px 0}.progress div{height:100%;width:0;background:linear-gradient(90deg,var(--pink),#ad8cff);transition:width .2s}.quote-card{font-size:16px;line-height:1.4;font-weight:750}.quote-card small{display:block;margin-top:8px;font-size:11px;color:var(--muted);font-weight:600}.tabs{display:flex;gap:7px;overflow:auto;padding:1px 0 9px;margin-bottom:8px}.tabs button{border:1px solid var(--line);background:white;color:var(--muted);border-radius:99px;padding:8px 12px;font-size:11px;font-weight:800;white-space:nowrap}.tabs button.active{background:var(--plum);color:white;border-color:var(--plum)}.lesson{border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:9px;background:#fff}.lesson summary{cursor:pointer;font-weight:800;list-style:none}.lesson summary:after{content:"＋";float:right;color:var(--pink)}.lesson[open] summary:after{content:"−"}.lesson p{font-size:13px;color:var(--muted);margin-bottom:0}.empty{text-align:center;padding:18px;color:var(--muted);font-size:13px}
-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(540px,100%);display:grid;grid-template-columns:repeat(5,1fr);background:#fffdfd;border-top:1px solid var(--line);padding:8px 5px calc(8px + env(safe-area-inset-bottom));z-index:10;box-shadow:0 -6px 24px #35103709}nav button{border:0;background:transparent;color:#8b768f;font-size:10px;font-weight:800;padding:5px 0;border-radius:13px}nav button span{display:block;font-size:21px;line-height:1.3;margin-bottom:2px}nav button.active{background:#ffe5f2;color:#b21f70}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(540px,100%);display:grid;grid-template-columns:repeat(6,minmax(0,1fr));background:#fffdfd;border-top:1px solid var(--line);padding:8px 5px calc(8px + env(safe-area-inset-bottom));z-index:10;box-shadow:0 -6px 24px #35103709}nav button{border:0;background:transparent;color:#8b768f;font-size:9px;font-weight:800;padding:5px 0;border-radius:13px;min-width:0}nav button span{display:block;font-size:21px;line-height:1.3;margin-bottom:2px}nav button.active{background:#ffe5f2;color:#b21f70}
 footer{text-align:center;color:#a48ca4;font-size:10px;padding:14px 12px;line-height:1.8}.mini{font-size:11px;color:var(--muted)}.barline{display:flex;justify-content:space-between;gap:8px;align-items:center}.beauty-steps{display:grid;grid-template-columns:1fr 1fr;gap:8px}.beauty-step{background:#fff;border:1px solid var(--line);border-radius:15px;padding:11px}.beauty-step b{display:block;font-size:12px}.beauty-step span{font-size:11px;color:var(--muted)}
 @media(min-width:580px){body{padding:20px 0}.app{border-radius:30px;overflow:hidden;min-height:calc(100vh - 40px)}nav{bottom:20px;border-radius:0 0 30px 30px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
@@ -136,7 +136,7 @@ main .tile .emoji,main .iconbox{background:#3b2b45!important}
 main input,main textarea,main select{background:#19131f!important;color:#f5eaf7!important;border-color:#59435f!important}
 main .tabs button{background:#241b2b!important;color:#c4b2ca!important;border-color:#49364f!important}
 main .tabs button.active{background:#49214d!important;color:#fff!important}
-nav{background:#1d1524!important;border-top-color:#49364f!important}
+nav{grid-template-columns:repeat(6,minmax(0,1fr))!important;background:#1d1524!important;border-top-color:#49364f!important}
 nav button{color:#b9a8c1!important}
 nav button.active{background:#49243e!important;color:#ff9ed1!important}
 
@@ -178,6 +178,37 @@ nav button.active{background:#49243e!important;color:#ff9ed1!important}
  <div id="learnContent"></div>
  <div class="card"><h3>Trusted starting point 🇬🇧</h3><p class="sub">Use current, reputable medical guidance and check dates. For personal decisions, speak to your care team.</p><a href="https://www.nhs.uk/conditions/gender-dysphoria/" target="_blank" rel="noopener" style="color:#bb267b;font-weight:800">NHS: Gender dysphoria ↗</a></div>
 </section>
+<section id="support" class="view">
+ <div class="head"><div><div class="eyebrow">PRACTICAL HELP & YOUR RIGHTS</div><h2>Support toolkit 💗</h2></div><span class="pill lav">UK resources</span></div>
+ <div class="notice purple">A starting point for navigating trans healthcare in the UK. Guidance and local policies can change, and arrangements differ across the UK. These resources are educational, not individual medical or legal advice.</div>
+ <div class="card">
+  <div class="row"><div class="iconbox lilacbg">🩺</div><div class="grow"><h3>GP rights & shared care</h3><p class="sub">Understand what shared care means, what you can ask your GP, and how to prepare for a conversation.</p></div></div>
+  <p>Shared care usually means a specialist service and GP agree how prescribing and monitoring will be handled. A GP is not automatically required to accept a proposed agreement, so ask what support or information they would need and request the decision and reasons in writing if it is declined.</p>
+  <a href="https://transactual.org.uk/support-from-your-gp/" target="_blank" rel="noopener" style="font-weight:800">TransActual: Support from your GP ↗</a><br><br>
+  <a href="https://www.gmc-uk.org/professional-standards/ethical-hub/trans-healthcare" target="_blank" rel="noopener" style="font-weight:800">GMC: Trans healthcare guidance ↗</a>
+ </div>
+ <div class="card">
+  <div class="row"><div class="iconbox peachbg">📄</div><div class="grow"><h3>Bridging prescriptions</h3><p class="sub">Learn what a bridging prescription is and how to discuss your situation safely.</p></div></div>
+  <p>A bridging prescription is a temporary prescribing arrangement while someone is waiting for specialist care. It is not guaranteed; the GP must make an individual clinical decision. Do not change doses or rely on unprescribed hormones based only on an online guide.</p>
+  <a href="https://transactual.org.uk/bridging-prescriptions/" target="_blank" rel="noopener" style="font-weight:800">Read TransActual’s bridging guide ↗</a>
+ </div>
+ <div class="card">
+  <div class="row"><div class="iconbox mintbg">🗂️</div><div class="grow"><h3>Prepare for your appointment</h3><p class="sub">A small checklist to help you feel organised.</p></div></div>
+  <div class="checkrow"><input type="checkbox" id="supportCheck1"><label for="supportCheck1">Write down my main questions and goals</label></div>
+  <div class="checkrow"><input type="checkbox" id="supportCheck2"><label for="supportCheck2">Bring my current medication list and doses</label></div>
+  <div class="checkrow"><input type="checkbox" id="supportCheck3"><label for="supportCheck3">Bring recent blood results or clinic letters, if available</label></div>
+  <div class="checkrow"><input type="checkbox" id="supportCheck4"><label for="supportCheck4">Ask who will arrange prescriptions, blood tests and follow-up</label></div>
+  <p class="sub">You can ask for things to be explained in writing or take someone you trust, if that helps.</p>
+ </div>
+ <div class="card">
+  <div class="row"><div class="iconbox lilacbg">🏳️‍⚧️</div><div class="grow"><h3>Trusted trans resources</h3><p class="sub">Guides you can read yourself or share with your GP.</p></div></div>
+  <p><a href="https://transactual.org.uk/downloadable-resources/" target="_blank" rel="noopener" style="font-weight:800">TransActual: downloadable resources ↗</a></p>
+  <p><a href="https://transactual.org.uk/healthcare-professionals/" target="_blank" rel="noopener" style="font-weight:800">TransActual: healthcare information ↗</a></p>
+  <p><a href="https://www.lgbt.foundation/" target="_blank" rel="noopener" style="font-weight:800">LGBT Foundation ↗</a></p>
+  <p><a href="https://www.nhs.uk/conditions/gender-dysphoria/" target="_blank" rel="noopener" style="font-weight:800">NHS: gender dysphoria information ↗</a></p>
+ </div>
+ <div class="card dark"><h3>Remember, lovely 💗</h3><p>You deserve respectful care. If one route is difficult, it is okay to ask what other options, advice or support are available.</p></div>
+</section>
 <section id="journey" class="view">
  <div class="head"><div><div class="eyebrow">YOUR STORY, YOUR WAY</div><h2>My journey 💖</h2></div><span class="pill mint">Private by default</span></div>
  <div class="card softpink"><div class="row"><div class="iconbox lilacbg">📌</div><div class="grow"><h3>Your inspiration board</h3><p class="sub">Save outfit ideas, makeup looks, hairstyles and links Pinterest-style.</p></div></div><button class="primary full" style="margin-top:10px" onclick="show('moodboard')">Open my moodboard ↗</button></div>
@@ -197,7 +228,7 @@ nav button.active{background:#49243e!important;color:#ff9ed1!important}
 </section>
 </main>
 <footer>DOLLHOUSE ✦ MADE WITH LOVE, FOR TRANS WOMEN<br>Prototype v2 · General education, not a substitute for professional medical care</footer>
-<nav aria-label="Main navigation"><button class="active" data-view="home" onclick="show('home')"><span>⌂</span>Home</button><button data-view="routine" onclick="show('routine')"><span>♡</span>Routine</button><button data-view="beauty" onclick="show('beauty')"><span>✧</span>Beauty</button><button data-view="learn" onclick="show('learn')"><span class="trans-flag-icon" aria-label="pastel transgender flag"><i></i><i></i><i></i><i></i><i></i></span>Learn</button><button data-view="journey" onclick="show('journey')"><span>✎</span>Journey</button></nav>
+<nav aria-label="Main navigation"><button class="active" data-view="home" onclick="show('home')"><span>⌂</span>Home</button><button data-view="routine" onclick="show('routine')"><span>♡</span>Routine</button><button data-view="beauty" onclick="show('beauty')"><span>✧</span>Beauty</button><button data-view="learn" onclick="show('learn')"><span class="trans-flag-icon" aria-label="pastel transgender flag"><i></i><i></i><i></i><i></i><i></i></span>Learn</button><button data-view="journey" onclick="show('journey')"><span>✎</span>Journey</button><button data-view="support" onclick="show('support')"><span>♡</span>Support</button></nav>
 </div>
 <script>
 const $=id=>document.getElementById(id);

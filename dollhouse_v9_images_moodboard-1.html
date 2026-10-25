@@ -140,6 +140,35 @@ nav{grid-template-columns:repeat(6,minmax(0,1fr))!important;background:#1d1524!i
 nav button{color:#b9a8c1!important}
 nav button.active{background:#49243e!important;color:#ff9ed1!important}
 
+
+/* Moodboard refresh: clean album-directory layout inspired by concept 3 */
+#moodboard .head h2{font-size:25px}
+#moodboard .moodboard-intro{margin:0 2px 14px;font-size:13px}
+#moodboard .mood-album-directory{display:flex;flex-direction:column;gap:9px;margin-bottom:14px}
+#moodboard .mood-directory-row{display:flex;align-items:center;gap:12px;padding:10px;border:1px solid var(--line);border-radius:17px;background:#241b2b;color:var(--ink);width:100%;text-align:left;min-height:92px}
+#moodboard .mood-directory-row:active{transform:scale(.99)}
+#moodboard .mood-directory-cover{width:104px;height:76px;flex-shrink:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;overflow:hidden;border-radius:11px;background:#30243b}
+#moodboard .mood-directory-cover img{width:100%;height:100%;min-height:0;object-fit:cover;display:block}
+#moodboard .mood-directory-cover img:first-child:nth-last-child(1){grid-row:span 2;grid-column:span 2}
+#moodboard .mood-directory-cover img:first-child:nth-last-child(2){grid-row:span 2}
+#moodboard .mood-directory-cover .mood-cover-empty{grid-row:span 2;grid-column:span 2;display:grid;place-items:center;color:#e5b2d9;font-size:25px;background:linear-gradient(145deg,#38213d,#242031)}
+#moodboard .mood-directory-copy{flex:1;min-width:0}
+#moodboard .mood-directory-copy strong{display:block;font-size:14px;line-height:1.3}
+#moodboard .mood-directory-copy small{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+#moodboard .mood-directory-arrow{color:#dca0d0;font-size:23px;padding:0 4px}
+#moodboard .moodboard-tools{margin:10px 0;border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#201827}
+#moodboard .moodboard-tools>summary{padding:13px 14px;font-weight:800;font-size:13px;cursor:pointer;list-style:none;color:var(--ink)}
+#moodboard .moodboard-tools>summary::-webkit-details-marker{display:none}
+#moodboard .moodboard-tools>summary:after{content:"＋";float:right;color:#e99acb}
+#moodboard .moodboard-tools[open]>summary:after{content:"−"}
+#moodboard .moodboard-tool-card{margin:0;border:0;border-radius:0;box-shadow:none;background:#241b2b!important}
+#moodboard .mood-album-title{font-size:14px;padding:3px 4px 9px}
+#moodboard #moodPinsHeading{font-size:17px}
+#moodboard .mood-album-shell{padding:8px}
+#moodboard .mood-album-contents{gap:3px}
+#moodboard .mood-album-contents .mood-pin{aspect-ratio:1/1}
+#moodboard .moodboard-tools input,#moodboard .moodboard-tools select{min-width:0}
+
 </style>
 </head>
 <body><div class="app">
@@ -247,10 +276,10 @@ nav button.active{background:#49243e!important;color:#ff9ed1!important}
 </section>
 <section id="moodboard" class="view">
  <div class="head"><div><div class="eyebrow">SAVE YOUR INSPIRATION</div><h2>My moodboard 📌</h2></div><span class="pill lav">Pinterest-style</span></div>
- <div class="card softpink"><h3>Your own little inspiration wall</h3><p class="sub">Add photos from your gallery or paste a link. Link previews show an image when the website allows it. Everything is stored locally in this browser.</p></div>
- <div class="card"><h3>📁 Your albums</h3><label for="moodAlbumSelect">View photos in</label><select id="moodAlbumSelect" onchange="selectMoodAlbum(this.value)" style="width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:white;color:var(--ink)"></select><div class="row" style="margin-top:10px"><input id="moodAlbumName" placeholder="Name a new album" aria-label="New album name"><button class="secondary" onclick="createMoodAlbum()">＋ Create</button></div><p class="mini">Choose an album to view it, or choose “All photos” to see everything together. Creating an album never deletes or moves your existing photos.</p></div>
- <div class="card"><h3>＋ Add a photo from your device</h3><label for="moodImage">Choose photo</label><input id="moodImage" type="file" accept="image/*" multiple><p class="mini">You can select several photos at once. Dollhouse will resize them before saving.</p><label for="moodImageTitle">Caption (optional)</label><input id="moodImageTitle" placeholder="e.g. Makeup look to try"><button class="primary full" onclick="addMoodImage()">＋ Add photo to selected album</button></div>
- <div class="card"><h3>↗ Save a link</h3><label for="moodUrl">Website or image link</label><input id="moodUrl" type="url" placeholder="https://..."><label for="moodLinkTitle">Caption (optional)</label><input id="moodLinkTitle" placeholder="e.g. Outfit inspiration"><button class="secondary full" onclick="addMoodLink()">＋ Save link to selected album</button><p class="mini">Some websites block image previews. If that happens, the saved card will still include a link you can open.</p></div>
+ <p class="sub moodboard-intro">Little collections of things that feel like you.</p><div id="moodAlbumCards" class="mood-album-directory"></div>
+ <details class="moodboard-tools"><summary>Manage albums</summary><div class="card moodboard-tool-card"><label for="moodAlbumSelect">Currently viewing</label><select id="moodAlbumSelect" onchange="selectMoodAlbum(this.value)"></select><div class="row" style="margin-top:10px"><input id="moodAlbumName" placeholder="Name a new album" aria-label="New album name"><button class="secondary" onclick="createMoodAlbum()">＋ Create</button></div><p class="mini">Creating an album never deletes or moves existing photos.</p></div></details>
+ <details class="moodboard-tools"><summary>＋ Add inspiration</summary><div class="card moodboard-tool-card"><h3>＋ Add a photo from your device</h3><label for="moodImage">Choose photo</label><input id="moodImage" type="file" accept="image/*" multiple><p class="mini">You can select several photos at once. Dollhouse will resize them before saving.</p><label for="moodImageTitle">Caption (optional)</label><input id="moodImageTitle" placeholder="e.g. Makeup look to try"><button class="primary full" onclick="addMoodImage()">＋ Add photo to selected album</button><h3 style="margin-top:18px">↗ Save a link</h3><label for="moodUrl">Website or image link</label><input id="moodUrl" type="url" placeholder="https://..."><label for="moodLinkTitle">Caption (optional)</label><input id="moodLinkTitle" placeholder="e.g. Outfit inspiration"><button class="secondary full" onclick="addMoodLink()">＋ Save link to selected album</button><p class="mini">Some websites block image previews. Your saved link can still be opened.</p></div></details>
+ 
  <div class="head"><h2 id="moodPinsHeading">Your photos</h2><button class="secondary small" onclick="clearMoodboard()">Clear this album</button></div><div id="moodGrid" class="mood-grid"></div>
  <div class="notice">Privacy note: photos and notes stay in this browser on this device. This prototype is not encrypted or synced.</div>
 </section>
@@ -559,9 +588,20 @@ function closeMoodViewer(){const modal=$('moodViewer');if(modal)modal.style.disp
 function moodViewerTouchStart(e){moodViewerTouchX=e.changedTouches[0].clientX}
 function moodViewerTouchEnd(e){const dx=e.changedTouches[0].clientX-moodViewerTouchX;if(Math.abs(dx)>45)stepMoodViewer(dx<0?1:-1)}
 document.addEventListener('keydown',e=>{const modal=$('moodViewer');if(!modal||modal.style.display==='none')return;if(e.key==='Escape')closeMoodViewer();if(e.key==='ArrowRight')stepMoodViewer(1);if(e.key==='ArrowLeft')stepMoodViewer(-1)});
+async function renderMoodAlbumDirectory(albums,allItems){
+ const el=$('moodAlbumCards');if(!el)return;
+ const groups=albums.map(a=>({album:a,items:allItems.filter(x=>(x.albumId||'default')===a.id)})).filter(g=>g.items.length);
+ if(!groups.length){el.innerHTML='<div class="card empty">Your collections will live here. Add a photo or create an album to get started ✨</div>';return}
+ const rows=await Promise.all(groups.map(async g=>{
+  const photos=g.items.slice(0,3);const covers=await Promise.all(photos.map(async x=>{let src='';try{src=await moodSrc(x)}catch(e){}return src?'<img src="'+src+'" alt="" loading="lazy">':'<span class="mood-cover-empty">✦</span>'}));
+  const cover=covers.length?covers.join(''):'<span class="mood-cover-empty">✦</span>';
+  return '<button type="button" class="mood-directory-row" onclick="selectMoodAlbum(\''+esc(g.album.id)+'\')"><span class="mood-directory-cover">'+cover+'</span><span class="mood-directory-copy"><strong>'+esc(g.album.name)+'</strong><small>'+g.items.length+' '+(g.items.length===1?'item':'items')+'</small></span><span class="mood-directory-arrow">›</span></button>';
+ }));
+ el.innerHTML=rows.join('');
+}
 async function renderMoodboard(){
- const el=$('moodGrid');if(!el)return;renderMoodAlbums();const albums=moodAlbums(),albumId=activeMoodAlbum(),allItems=moodItems(),items=visibleMoodItems();const heading=$('moodPinsHeading');if(heading)heading.textContent=albumId==='all'?'All photos ('+items.length+')':'Photos in '+(albums.find(a=>a.id===albumId)?.name||'My inspiration');el.classList.toggle('mood-album-grid',items.filter(x=>x.type==='image').length>1);
- if(!items.length){el.innerHTML='<div class="card empty" style="break-inside:avoid">'+(albumId==='all'?'No photos saved yet — add your first photo or link ✨':'This album is empty. Choose it above, then add a photo or link using the buttons above ✨')+'</div>';return}
+ const el=$('moodGrid');if(!el)return;renderMoodAlbums();const albums=moodAlbums(),albumId=activeMoodAlbum(),allItems=moodItems(),items=visibleMoodItems();const directory=$('moodAlbumCards');if(directory)directory.style.display=albumId==='all'?'flex':'none';await renderMoodAlbumDirectory(albums,allItems);const heading=$('moodPinsHeading');if(heading)heading.textContent=albumId==='all'?'All photos ('+items.length+')':'Photos in '+(albums.find(a=>a.id===albumId)?.name||'My inspiration');el.classList.toggle('mood-album-grid',items.filter(x=>x.type==='image').length>1);
+ if(!items.length){el.innerHTML=albumId==='all'?'':('<div class="card empty" style="break-inside:avoid">This album is empty. Open “Add inspiration” to add a photo or link ✨</div>');return}
  const groups=albumId==='all'?albums.map(a=>({album:a,items:allItems.filter(x=>(x.albumId||'default')===a.id)})).filter(g=>g.items.length):[{album:albums.find(a=>a.id===albumId)||{id:albumId,name:'My inspiration'},items}];
  const renderPin=async(x)=>{let src='';try{src=await moodSrc(x)}catch(e){}const viewIndex=items.findIndex(y=>y.id===x.id);const img=x.type==='image'?'<button class="mood-image-open" onclick="openMoodViewer('+viewIndex+')" aria-label="View '+esc(x.title)+'"><img src="'+src+'" alt="'+esc(x.title)+'"></button>':'<button class="mood-image-open" onclick="openMoodViewer('+viewIndex+')" aria-label="Preview '+esc(x.title)+'"><img src="'+(x.src||'')+'" alt="Link preview image" loading="lazy"></button>';const albumOptions=albums.map(a=>'<option value="'+esc(a.id)+'" '+(a.id===(x.albumId||'default')?'selected':'')+'>'+esc(a.name)+'</option>').join('');return '<article class="mood-pin">'+img+'<div class="pin-info"><p><strong>'+esc(x.title)+'</strong></p><label class="mood-move-label" for="moodMove_'+x.id+'">Move to album</label><select class="mood-move-select" id="moodMove_'+x.id+'" onchange="moveMoodToAlbum('+x.id+',this.value)">'+albumOptions+'</select><div class="pin-actions">'+(x.type==='link'?'<a href="'+x.url+'" target="_blank" rel="noopener">Open link ↗</a>':'')+'<button onclick="deleteMood('+x.id+')">Remove</button></div></div></article>'};
  const sections=await Promise.all(groups.map(async g=>'<section class="mood-album-shell"><div class="mood-album-title">'+esc(g.album.name)+' ('+g.items.length+')</div><div class="mood-album-contents">'+(await Promise.all(g.items.map(renderPin))).join('')+'</div></section>'));
